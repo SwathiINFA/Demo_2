@@ -1,0 +1,50 @@
+{
+  "objectInfo" : {
+    "id" : "4IKLgXEAumTlBSZJHaROiO",
+    "name" : "m_dummy_IDS_SFDCSTG",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V17000000003G6T"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2024-12-05T09:48:28.185Z",
+  "objectRefs" : [ {
+    "id" : "emeLiudA5QEhOkwuoq0jkl",
+    "name" : "SrcFile_Parent_Dev",
+    "type" : "Connection",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V0B000000000HUX"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "For source file system",
+        "contentType" : "JSON",
+        "documentState" : "COMPLETE"
+      }
+    },
+    "path" : "/SYS"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}
