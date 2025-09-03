@@ -1,0 +1,186 @@
+{
+  "name" : "s_m_OSC_UpdateGoldsheetDate",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_UpdateGoldsheetDate",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_GOLDSHEET_FOP_OPTY$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_GOLDSHEET_FOP_OPTY",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_GOLDSHEET_FOP_OPTYSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_GOLDSHEET_FOP_OPTYSrcParameter",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_GOLDSHEET_FOP_OPTY"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_GOLDSHEET_FOP_OPTY",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT\r\nmax(a.lastupdatedate) as lastupdatedate,\r\nmax(b.first_name || ' ' || b.last_name) as lastupdatedby,\r\na.recordnumber as recordnumber\r\nFROM (\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_sso where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_fop_opty where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_fop_ss where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_fop_trend where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_rel_act where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_rel_goal where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect recordnumber, lastupdatedby, lastupdatedate from osc.t_osc_goldsheet_str_player where to_date(lastupdatedate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\nunion all\r\nselect goldsheetrecordnumber as recordnumber, lastupdatedby, lastupdateddate as lastupdatedate from osc.t_osc_mh_activity where goldsheetrecordnumber is not null and to_date(lastupdateddate,'YYYY-MM-DD HH24:MI:SS') > sysdate - 1\r\n) a, osc.t_osc_resource b\r\nWHERE\r\na.lastupdatedby = b.username\r\nGROUP BY a.recordnumber",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_GOLDSHEET_FOP_OPTY",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_goldsheet_dateupdate$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_goldsheet_dateupdate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_goldsheet_dateupdateTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_goldsheet_dateupdateTgtParameter",
+        "default" : "GoldsheetDateUpdate-Account.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_goldsheet_dateupdate"
+      },
+      "targetConnectionId" : "@6HKCzII2EuQl35yE1n9kYf",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Goldsheet",
+      "targetObject" : "GoldsheetDateUpdate-Account.csv",
+      "targetObjectLabel" : "GoldsheetDateUpdate-Account.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "GoldsheetDateUpdate-Account.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "GoldsheetDateUpdate-Account.csv",
+          "label" : "GoldsheetDateUpdate-Account.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "GoldsheetDateUpdate-Account.csv",
+            "label" : "GoldsheetDateUpdate-Account.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "GoldsheetDateUpdate-Account.csv",
+      "objectLabel" : "GoldsheetDateUpdate-Account.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@kayR0dkAj4gf76bfwe49QQ",
+  "mappingTemplateName" : "m_OSC_UpdateGoldsheetDate",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:19 PDT"
+}

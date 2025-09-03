@@ -1,0 +1,301 @@
+{
+  "name" : "s_m_OSC_Conversion_SiebelChangedRecordsContact",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Conversion_SiebelChangedRecordsContact",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_S_CONTACT$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_S_CONTACT",
+      "uiProperties" : {
+        "cnxtype" : "ODBC",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "true",
+        "isMsrcSortParameterized" : "false",
+        "msrcFilterDefault" : "S_USER.LOGIN <> 'SADMIN' AND\r\nS_CONTACT.LAST_UPD > TIMESTAMP ('$$PROCESS_DATE') AND\r\nS_CONTACT.LAST_UPD <= TIMESTAMP ('$$$SESSSTARTTIME')",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_S_CONTACT"
+      },
+      "sourceConnectionId" : "@jkubLgx4vKuidXXRGSETgQ",
+      "connectionName" : "SBL78PR",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "S_USER",
+          "label" : "S_USER",
+          "metadataUpdated" : false
+        },
+        "userDefinedJoin" : "S_CONTACT.LAST_UPD_BY = S_USER.ROW_ID",
+        "advancedFilterExpression" : "S_USER.LOGIN <> 'SADMIN' AND\r\nS_CONTACT.LAST_UPD > TIMESTAMP ('$$PROCESS_DATE') AND\r\nS_CONTACT.LAST_UPD <= TIMESTAMP ('$$$SESSSTARTTIME')",
+        "singleMode" : false,
+        "objects" : [
+          {
+            "name" : "S_USER",
+            "label" : "S_USER",
+            "metadataUpdated" : false
+          },
+          {
+            "name" : "S_CONTACT",
+            "label" : "S_CONTACT",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_siebel_row_id$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_siebel_row_id",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_siebel_row_idTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_siebel_row_idTgtParameter",
+        "default" : "ff_conv_siebel_contact_changedrecords.txt",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "defaultTargetUpdateColumns" : "ROW_ID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_siebel_row_id"
+      },
+      "targetConnectionId" : "@66yyk2WBI9CbW98NMD1qWD",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Conversion",
+      "targetObject" : "ff_conv_siebel_contact_changedrecords.txt",
+      "targetObjectLabel" : "ff_conv_siebel_contact_changedrecords.txt",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "ff_conv_siebel_contact_changedrecords.txt",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ff_conv_siebel_contact_changedrecords.txt",
+          "label" : "ff_conv_siebel_contact_changedrecords.txt",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ff_conv_siebel_contact_changedrecords.txt",
+            "label" : "ff_conv_siebel_contact_changedrecords.txt",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ff_conv_siebel_contact_changedrecords.txt",
+      "objectLabel" : "ff_conv_siebel_contact_changedrecords.txt",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_ROWIDLOOKUP$",
+      "type" : "LOOKUP",
+      "label" : "LKP_ROWIDLOOKUP",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "LKP_ROWIDLOOKUPLookupParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "LKP_ROWIDLOOKUPLookupParameter",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "default" : "ff_conv_siebel_contact_lookup.txt",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isFFRetainMetaData" : "true",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "LKP_ROWIDLOOKUP"
+      },
+      "lookupConnectionId" : "@2dr3rS2eKaufp2EVuGRHw9",
+      "connectionName" : "default-connection-name_Flat_File",
+      "lookupObject" : "ff_conv_siebel_contact_lookup.txt",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 2147483647,
+        "firstDataRow" : 1,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "true",
+        "Case Sensitive String Comparison" : "true",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Lookup source filename" : "ff_conv_siebel_contact_lookup.txt",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Datetime Format" : "A  19 mm/dd/yyyy hh24:mi:ss",
+        "Subsecond Precision" : "0",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ff_conv_siebel_contact_lookup.txt",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@4GNl44ct4isb5s7gBrfTMF",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_Conversion_SiebelChangedRecordsContact",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESS_DATE",
+      "initialValue" : "2019-12-06 17:00:00",
+      "datatype" : "STRING",
+      "precision" : "21",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "2019-12-06 17:00:00"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:26 PDT"
+}

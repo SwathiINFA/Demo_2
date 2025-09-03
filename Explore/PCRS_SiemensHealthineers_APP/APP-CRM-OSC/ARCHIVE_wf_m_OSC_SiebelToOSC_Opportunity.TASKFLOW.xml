@@ -1,0 +1,1361 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>HHeHufWC64Ky2uI-gt-262450-2025-07-09T09:55:37.543Z::tf.xml</types1:EntryId>
+      <types1:Name>ARCHIVE_wf_m_OSC_SiebelToOSC_Opportunity</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>These workflows are created from the Workflow Generation Wizard.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anfrancis_icinq</types1:CreatedBy>
+      <types1:CreationDate>2025-07-09T09:55:38Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   xmlns:ns2="http://informatica.com/HumanTask/2022/12/schema/model/humanTaskCommon.xsd"
+                   displayName="ARCHIVE_wf_m_OSC_SiebelToOSC_Opportunity"
+                   name="ARCHIVE_wf_m_OSC_SiebelToOSC_Opportunity"
+                   overrideAPIName="false">
+            <appliesTo/>
+            <description>These workflows are created from the Workflow Generation Wizard.</description>
+            <tags/>
+            <generator>PC2Cloud Workflow Converter v1</generator>
+            <input>
+               <parameter name="PROCESS_DATE" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter name="InputMappingTaskParameterFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter name="InputMappingTaskParameterFileName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description=""
+                      name="s_m_OSC_SiebelToOSC_WSOLIProcessed"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-WSOLIProcessed</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_SiebelToOSC_OLISyncKeyProcessed"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-OLISyncKeyProcessed</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_SiebelToOSC_Opportunity"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-Opportunity</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="s_m_OSC_SiebelToOSC_OLI" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-OLI</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_SiebelToOSC_SiebelDataImport"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-SiebelDataImport</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_SiebelToOSC_WSOptyProcessed"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-SiebelToOSC-WSOptyProcessed</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_SiebelToOSC_Opty" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_SiebelToOSC_OLI" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_SiebelToOSC_OLISyncKey" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_DeleteLogFiles" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="SendEmail" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="PMBadFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMCacheDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMExtProcDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMFailureEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMFolderName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetLocation()</option>
+                  </options>
+               </field>
+               <field description="" name="PMIntegrationServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMLookupFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryUserName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getUserName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMRootDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSessionLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSessionRunMode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSourceFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMStorageDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSuccessEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMTargetFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMTempDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunId" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getProcessId()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunInstanceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="SYSDATE" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">fn:current-date()</option>
+                  </options>
+               </field>
+               <field description="" name="WORKFLOWSTARTTIME" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getInstanceStartTime()</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_SiebelToOSC_Opty_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_SiebelToOSC_OLI_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_SiebelToOSC_OLISyncKey_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_DeleteLogFiles_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedGroups>
+                     <group>CDI_TFlow_API_group</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <title>Start</title>
+                  <link id="mckc8ew4" targetId="mckc8ew2"/>
+               </start>
+               <assignment id="mckc8ew2">
+                  <title>Assignment_PC_Variables</title>
+                  <operation source="constant" to="temp.PMBadFileDir"/>
+                  <operation source="constant" to="temp.PMCacheDir"/>
+                  <operation source="constant" to="temp.PMExtProcDir"/>
+                  <operation source="constant" to="temp.PMFailureEmailUser"/>
+                  <operation source="formula" to="temp.PMFolderName">
+                     <expression language="XQuery">util:getAssetLocation()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMIntegrationServiceName"/>
+                  <operation source="constant" to="temp.PMLookupFileDir"/>
+                  <operation source="constant" to="temp.PMRepositoryServiceName"/>
+                  <operation source="formula" to="temp.PMRepositoryUserName">
+                     <expression language="XQuery">util:getUserName()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMRootDir"/>
+                  <operation source="constant" to="temp.PMSessionLogDir"/>
+                  <operation source="constant" to="temp.PMSessionRunMode"/>
+                  <operation source="constant" to="temp.PMSourceFileDir"/>
+                  <operation source="constant" to="temp.PMStorageDir"/>
+                  <operation source="constant" to="temp.PMSuccessEmailUser"/>
+                  <operation source="constant" to="temp.PMTargetFileDir"/>
+                  <operation source="constant" to="temp.PMTempDir"/>
+                  <operation source="constant" to="temp.PMWorkflowLogDir"/>
+                  <operation source="formula" to="temp.PMWorkflowName">
+                     <expression language="XQuery">util:getAssetName()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.PMWorkflowRunId">
+                     <expression language="XQuery">util:getProcessId()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMWorkflowRunInstanceName"/>
+                  <operation source="formula" to="temp.SYSDATE">
+                     <expression language="XQuery">fn:current-date()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.WORKFLOWSTARTTIME">
+                     <expression language="XQuery">util:getInstanceStartTime()</expression>
+                  </operation>
+                  <link id="mckc8ew5" targetId="mckc8ew1"/>
+               </assignment>
+               <assignment id="mckc8ew1">
+                  <title>Assignment_Workflow_Variables</title>
+                  <operation source="formula" to="input.PROCESS_DATE">
+                     <expression language="XQuery">if (util:isNull($input.PROCESS_DATE) or fn:empty($input.PROCESS_DATE)) then (''2019-08-29 13:00:00'') else ($input.PROCESS_DATE)</expression>
+                  </operation>
+                  <link id="mckc8ew6" targetId="mckc8evt"/>
+               </assignment>
+               <assignment id="mckc8evt">
+                  <title>Assignment_PC_Workflow_Parameter_File</title>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileDir">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileDir)) then '' else $input.InputMappingTaskParameterFileDir</expression>
+                  </operation>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileName">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileName)) then '' else $input.InputMappingTaskParameterFileName</expression>
+                  </operation>
+                  <link id="mckc8ew7" targetId="mckc8ev4"/>
+               </assignment>
+               <eventContainer id="mckc8ev4">
+                  <service id="mckc8ev5">
+                     <title>s_m_OSC_SiebelToOSC_SiebelDataImport</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_SiebelDataImport</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">7UdmHAcUwEahOaT9Ecz2KH</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="s-m-OSC-SiebelToOSC-SiebelDataImport">temp.s_m_OSC_SiebelToOSC_SiebelDataImport</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-SiebelToOSC-SiebelDataImport/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-SiebelToOSC-SiebelDataImport/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/inout/PROCESS_DATE">PROCESS_DATE</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="mckc8ewn" targetId="mckc8ewd"/>
+                  <events>
+                     <catch faultField="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/fault"
+                            id="mckc8ev6"
+                            interrupting="true"
+                            name="error"/>
+                     <catch faultField="temp.s_m_OSC_SiebelToOSC_SiebelDataImport/fault"
+                            id="mckc8ev7"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <container id="mckc8ewd" type="exclusive">
+                  <title>Link_Condition_mckc8ewc</title>
+                  <flow id="mckc8ewf">
+                     <eventContainer id="mckc8ev0">
+                        <service id="mckc8ev1">
+                           <title>s_m_OSC_SiebelToOSC_OLI</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_OLI</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">5qcHITd2bWbhWeHWSnQ9yE</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="s-m-OSC-SiebelToOSC-OLI">temp.s_m_OSC_SiebelToOSC_OLI</operation>
+                                 <operation source="field"
+                                            to="s-m-OSC-SiebelToOSC-OLI/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                 <operation source="field"
+                                            to="temp.s_m_OSC_SiebelToOSC_OLI[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                 <operation source="field"
+                                            to="s-m-OSC-SiebelToOSC-OLI/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                 <operation source="field"
+                                            to="temp.s_m_OSC_SiebelToOSC_OLI[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Task_Status">Task Status</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_SiebelToOSC_OLI/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_SiebelToOSC_OLI/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_SiebelToOSC_OLI/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_SiebelToOSC_OLI/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/Error_Message">Error Message</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_SiebelToOSC_OLI/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field" to="temp.s_m_OSC_SiebelToOSC_OLI/output/FirstErrorCode">First Error Code</operation>
+                           </serviceOutput>
+                        </service>
+                        <link id="mckc8ex3" targetId="mckc8ewt"/>
+                        <events>
+                           <catch faultField="temp.s_m_OSC_SiebelToOSC_OLI/fault"
+                                  id="mckc8ev2"
+                                  interrupting="true"
+                                  name="error"/>
+                           <catch faultField="temp.s_m_OSC_SiebelToOSC_OLI/fault"
+                                  id="mckc8ev3"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <container id="mckc8ewt" type="exclusive">
+                        <title>Link_Condition_mckc8ews</title>
+                        <flow id="mckc8ewv">
+                           <eventContainer id="mckc8evg">
+                              <service id="mckc8evh">
+                                 <title>cmd_SiebelToOSC_OLI</title>
+                                 <serviceName>ICSExecuteCommandTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Task Name" source="constant">cmd_SiebelToOSC_OLI</parameter>
+                                    <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                    <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                    <parameter name="Script Name" source="constant"/>
+                                    <parameter name="Input Arguments" source="constant"/>
+                                    <parameter name="Work Directory" source="constant"/>
+                                    <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                    <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="INFA-commandTask">temp.cmd_SiebelToOSC_OLI</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">RUN_OSC_SIEBELTOOSC_OLI</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                       <operation source="constant"
+                                                  to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC_Share\run_siebeltoosc_oli.bat"</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/End_Time">End Time</operation>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/Execution_Status">Execution Status</operation>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/Exit_Code">Exit Code</operation>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI/output/Std_Error">Std Error</operation>
+                                 </serviceOutput>
+                              </service>
+                              <flow id="mckc8f0l">
+                                 <assignment id="mckc8f0k">
+                                    <title>Command_Task_Success_Output_Assignment_cmd_SiebelToOSC_OLI</title>
+                                    <operation source="field" to="temp.cmd_SiebelToOSC_OLI_Execution_Status">temp.cmd_SiebelToOSC_OLI[1]/output[1]/Execution_Status</operation>
+                                 </assignment>
+                                 <link id="mckc8f0m" targetId="mckc8evg" type="containerLink"/>
+                              </flow>
+                              <flow id="mckc8f0o">
+                                 <assignment id="mckc8f0r">
+                                    <title>Command_Task_Failure_Output_Assignment_cmd_SiebelToOSC_OLI</title>
+                                    <operation source="constant" to="temp.cmd_SiebelToOSC_OLI_Execution_Status">FAILED</operation>
+                                 </assignment>
+                                 <link id="mckc8f0p" targetId="mckc8evg" type="containerLink"/>
+                              </flow>
+                              <link id="mckc8exj" targetId="mckc8ex9"/>
+                              <link id="mckc8f0n" targetId="mckc8f0l" type="containerLink"/>
+                              <events>
+                                 <catch faultField="temp.cmd_SiebelToOSC_OLI/fault"
+                                        id="mckc8evi"
+                                        interrupting="true"
+                                        name="error">
+                                    <link id="mckc8f0q" targetId="mckc8f0o" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <container id="mckc8ex9" type="exclusive">
+                              <title>Link_Condition_mckc8ex8</title>
+                              <flow id="mckc8exb">
+                                 <eventContainer id="mckc8euw">
+                                    <service id="mckc8eux">
+                                       <title>s_m_OSC_SiebelToOSC_Opportunity</title>
+                                       <serviceName>ICSExecuteDataTask</serviceName>
+                                       <serviceGUID/>
+                                       <serviceInput>
+                                          <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_Opportunity</parameter>
+                                          <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                          <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                          <parameter name="GUID" source="constant" updatable="true">0PCZEI1AMObkvJRkEEwhUn</parameter>
+                                          <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                          <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                          <parameter name="taskField" source="nested">
+                                             <operation source="field" to="s-m-OSC-SiebelToOSC-Opportunity">temp.s_m_OSC_SiebelToOSC_Opportunity</operation>
+                                             <operation source="field"
+                                                        to="s-m-OSC-SiebelToOSC-Opportunity/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                             <operation source="field"
+                                                        to="temp.s_m_OSC_SiebelToOSC_Opportunity[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                             <operation source="field"
+                                                        to="s-m-OSC-SiebelToOSC-Opportunity/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                             <operation source="field"
+                                                        to="temp.s_m_OSC_SiebelToOSC_Opportunity[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                          </parameter>
+                                       </serviceInput>
+                                       <serviceOutput>
+                                          <operation source="field" to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Run_Id">Run Id</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Start_Time">Start Time</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/End_Time">End Time</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Object_Name">Object Name</operation>
+                                          <operation source="field" to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Log_Id">Log Id</operation>
+                                          <operation source="field" to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Task_Id">Task Id</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Task_Status">Task Status</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Success_Source_Rows">Success Source Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Success_Target_Rows">Success Target Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/Error_Message">Error Message</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/TotalTransErrors">Total Transformation Errors</operation>
+                                          <operation source="field"
+                                                     to="temp.s_m_OSC_SiebelToOSC_Opportunity/output/FirstErrorCode">First Error Code</operation>
+                                       </serviceOutput>
+                                    </service>
+                                    <link id="mckc8exz" targetId="mckc8exp"/>
+                                    <events>
+                                       <catch faultField="temp.s_m_OSC_SiebelToOSC_Opportunity/fault"
+                                              id="mckc8euy"
+                                              interrupting="true"
+                                              name="error"/>
+                                       <catch faultField="temp.s_m_OSC_SiebelToOSC_Opportunity/fault"
+                                              id="mckc8euz"
+                                              interrupting="true"
+                                              name="warning"/>
+                                    </events>
+                                 </eventContainer>
+                                 <container id="mckc8exp" type="exclusive">
+                                    <title>Link_Condition_mckc8exo</title>
+                                    <flow id="mckc8exr">
+                                       <eventContainer id="mckc8evd">
+                                          <service id="mckc8eve">
+                                             <title>cmd_SiebelToOSC_Opty</title>
+                                             <serviceName>ICSExecuteCommandTask</serviceName>
+                                             <serviceGUID/>
+                                             <serviceInput>
+                                                <parameter name="Task Name" source="constant">cmd_SiebelToOSC_Opty</parameter>
+                                                <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                                <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                                <parameter name="Script Name" source="constant"/>
+                                                <parameter name="Input Arguments" source="constant"/>
+                                                <parameter name="Work Directory" source="constant"/>
+                                                <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                                <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                                                <parameter name="taskField" source="nested">
+                                                   <operation source="field" to="INFA-commandTask">temp.cmd_SiebelToOSC_Opty</operation>
+                                                   <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">RUN_OSC_SIEBELTOOSC_OPTY</operation>
+                                                   <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                                   <operation source="constant"
+                                                              to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC_Share\run_siebeltoosc_opty.bat"</operation>
+                                                   <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                                </parameter>
+                                             </serviceInput>
+                                             <serviceOutput>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/Run_Id">Run Id</operation>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/Start_Time">Start Time</operation>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/End_Time">End Time</operation>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/Execution_Status">Execution Status</operation>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/Exit_Code">Exit Code</operation>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty/output/Std_Error">Std Error</operation>
+                                             </serviceOutput>
+                                          </service>
+                                          <flow id="mckc8f0d">
+                                             <assignment id="mckc8f0c">
+                                                <title>Command_Task_Success_Output_Assignment_cmd_SiebelToOSC_Opty</title>
+                                                <operation source="field" to="temp.cmd_SiebelToOSC_Opty_Execution_Status">temp.cmd_SiebelToOSC_Opty[1]/output[1]/Execution_Status</operation>
+                                             </assignment>
+                                             <link id="mckc8f0e" targetId="mckc8evd" type="containerLink"/>
+                                          </flow>
+                                          <flow id="mckc8f0g">
+                                             <assignment id="mckc8f0j">
+                                                <title>Command_Task_Failure_Output_Assignment_cmd_SiebelToOSC_Opty</title>
+                                                <operation source="constant" to="temp.cmd_SiebelToOSC_Opty_Execution_Status">FAILED</operation>
+                                             </assignment>
+                                             <link id="mckc8f0h" targetId="mckc8evd" type="containerLink"/>
+                                          </flow>
+                                          <link id="mckc8eyf" targetId="mckc8ey5"/>
+                                          <link id="mckc8f0f" targetId="mckc8f0d" type="containerLink"/>
+                                          <events>
+                                             <catch faultField="temp.cmd_SiebelToOSC_Opty/fault"
+                                                    id="mckc8evf"
+                                                    interrupting="true"
+                                                    name="error">
+                                                <link id="mckc8f0i" targetId="mckc8f0g" type="containerLink"/>
+                                             </catch>
+                                          </events>
+                                       </eventContainer>
+                                       <container id="mckc8ey5" type="exclusive">
+                                          <title>Link_Condition_mckc8ey4</title>
+                                          <flow id="mckc8ey7">
+                                             <eventContainer id="mckc8evj">
+                                                <service id="mckc8evk">
+                                                   <title>cmd_SiebelToOSC_OLISyncKey</title>
+                                                   <serviceName>ICSExecuteCommandTask</serviceName>
+                                                   <serviceGUID/>
+                                                   <serviceInput>
+                                                      <parameter name="Task Name" source="constant">cmd_SiebelToOSC_OLISyncKey</parameter>
+                                                      <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                                      <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                                      <parameter name="Script Name" source="constant"/>
+                                                      <parameter name="Input Arguments" source="constant"/>
+                                                      <parameter name="Work Directory" source="constant"/>
+                                                      <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                                      <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                                                      <parameter name="taskField" source="nested">
+                                                         <operation source="field" to="INFA-commandTask">temp.cmd_SiebelToOSC_OLISyncKey</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">RUN_OSC_SIEBELTOOSC_OLISYNCKEY</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                                         <operation source="constant"
+                                                                    to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC_Share\run_siebeltoosc_olisynckey.bat"</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                                      </parameter>
+                                                   </serviceInput>
+                                                   <serviceOutput>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey/output/Run_Id">Run Id</operation>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey/output/Start_Time">Start Time</operation>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey/output/End_Time">End Time</operation>
+                                                      <operation source="field"
+                                                                 to="temp.cmd_SiebelToOSC_OLISyncKey/output/Execution_Status">Execution Status</operation>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey/output/Exit_Code">Exit Code</operation>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey/output/Std_Error">Std Error</operation>
+                                                   </serviceOutput>
+                                                </service>
+                                                <flow id="mckc8f0t">
+                                                   <assignment id="mckc8f0s">
+                                                      <title>Command_Task_Success_Output_Assignment_cmd_SiebelToOSC_OLISyncKey</title>
+                                                      <operation source="field" to="temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status">temp.cmd_SiebelToOSC_OLISyncKey[1]/output[1]/Execution_Status</operation>
+                                                   </assignment>
+                                                   <link id="mckc8f0u" targetId="mckc8evj" type="containerLink"/>
+                                                </flow>
+                                                <flow id="mckc8f0w">
+                                                   <assignment id="mckc8f0z">
+                                                      <title>Command_Task_Failure_Output_Assignment_cmd_SiebelToOSC_OLISyncKey</title>
+                                                      <operation source="constant" to="temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status">FAILED</operation>
+                                                   </assignment>
+                                                   <link id="mckc8f0x" targetId="mckc8evj" type="containerLink"/>
+                                                </flow>
+                                                <link id="mckc8eyv" targetId="mckc8eyl"/>
+                                                <link id="mckc8f0v" targetId="mckc8f0t" type="containerLink"/>
+                                                <events>
+                                                   <catch faultField="temp.cmd_SiebelToOSC_OLISyncKey/fault"
+                                                          id="mckc8evl"
+                                                          interrupting="true"
+                                                          name="error">
+                                                      <link id="mckc8f0y" targetId="mckc8f0w" type="containerLink"/>
+                                                   </catch>
+                                                </events>
+                                             </eventContainer>
+                                             <container id="mckc8eyl" type="exclusive">
+                                                <title>Link_Condition_mckc8eyk</title>
+                                                <flow id="mckc8eyn">
+                                                   <eventContainer id="mckc8ev8">
+                                                      <service id="mckc8ev9">
+                                                         <title>s_m_OSC_SiebelToOSC_WSOptyProcessed</title>
+                                                         <serviceName>ICSExecuteDataTask</serviceName>
+                                                         <serviceGUID/>
+                                                         <serviceInput>
+                                                            <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_WSOptyProcessed</parameter>
+                                                            <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                            <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                                            <parameter name="GUID" source="constant" updatable="true">87UEl5gpg7JlL4M1rq9SOy</parameter>
+                                                            <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                            <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                            <parameter name="taskField" source="nested">
+                                                               <operation source="field" to="s-m-OSC-SiebelToOSC-WSOptyProcessed">temp.s_m_OSC_SiebelToOSC_WSOptyProcessed</operation>
+                                                               <operation source="field"
+                                                                          to="s-m-OSC-SiebelToOSC-WSOptyProcessed/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                               <operation source="field"
+                                                                          to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                               <operation source="field"
+                                                                          to="s-m-OSC-SiebelToOSC-WSOptyProcessed/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                               <operation source="field"
+                                                                          to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                            </parameter>
+                                                         </serviceInput>
+                                                         <serviceOutput>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Run_Id">Run Id</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Start_Time">Start Time</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/End_Time">End Time</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Object_Name">Object Name</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Log_Id">Log Id</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Task_Id">Task Id</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Task_Status">Task Status</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Success_Source_Rows">Success Source Rows</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Success_Target_Rows">Success Target Rows</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/Error_Message">Error Message</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                            <operation source="field"
+                                                                       to="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/output/FirstErrorCode">First Error Code</operation>
+                                                         </serviceOutput>
+                                                      </service>
+                                                      <link id="mckc8ezb" targetId="mckc8ez1"/>
+                                                      <events>
+                                                         <catch faultField="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/fault"
+                                                                id="mckc8eva"
+                                                                interrupting="true"
+                                                                name="error"/>
+                                                         <catch faultField="temp.s_m_OSC_SiebelToOSC_WSOptyProcessed/fault"
+                                                                id="mckc8evb"
+                                                                interrupting="true"
+                                                                name="warning"/>
+                                                      </events>
+                                                   </eventContainer>
+                                                   <container id="mckc8ez1" type="exclusive">
+                                                      <title>Link_Condition_mckc8ez0</title>
+                                                      <flow id="mckc8ez3">
+                                                         <eventContainer id="mckc8euo">
+                                                            <service id="mckc8eup">
+                                                               <title>s_m_OSC_SiebelToOSC_WSOLIProcessed</title>
+                                                               <serviceName>ICSExecuteDataTask</serviceName>
+                                                               <serviceGUID/>
+                                                               <serviceInput>
+                                                                  <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_WSOLIProcessed</parameter>
+                                                                  <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                                  <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                                                  <parameter name="GUID" source="constant" updatable="true">1iCDpPF6ockeD3vtBATXE2</parameter>
+                                                                  <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                                  <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                                  <parameter name="taskField" source="nested">
+                                                                     <operation source="field" to="s-m-OSC-SiebelToOSC-WSOLIProcessed">temp.s_m_OSC_SiebelToOSC_WSOLIProcessed</operation>
+                                                                     <operation source="field"
+                                                                                to="s-m-OSC-SiebelToOSC-WSOLIProcessed/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                                     <operation source="field"
+                                                                                to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                                     <operation source="field"
+                                                                                to="s-m-OSC-SiebelToOSC-WSOLIProcessed/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                                     <operation source="field"
+                                                                                to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                                  </parameter>
+                                                               </serviceInput>
+                                                               <serviceOutput>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Run_Id">Run Id</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Start_Time">Start Time</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/End_Time">End Time</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Object_Name">Object Name</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Log_Id">Log Id</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Task_Id">Task Id</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Task_Status">Task Status</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Success_Source_Rows">Success Source Rows</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Success_Target_Rows">Success Target Rows</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/Error_Message">Error Message</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                                  <operation source="field"
+                                                                             to="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/output/FirstErrorCode">First Error Code</operation>
+                                                               </serviceOutput>
+                                                            </service>
+                                                            <link id="mckc8ezr" targetId="mckc8ezh"/>
+                                                            <events>
+                                                               <catch faultField="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/fault"
+                                                                      id="mckc8euq"
+                                                                      interrupting="true"
+                                                                      name="error"/>
+                                                               <catch faultField="temp.s_m_OSC_SiebelToOSC_WSOLIProcessed/fault"
+                                                                      id="mckc8eur"
+                                                                      interrupting="true"
+                                                                      name="warning"/>
+                                                            </events>
+                                                         </eventContainer>
+                                                         <container id="mckc8ezh" type="exclusive">
+                                                            <title>Link_Condition_mckc8ezg</title>
+                                                            <flow id="mckc8ezj">
+                                                               <eventContainer id="mckc8eus">
+                                                                  <service id="mckc8eut">
+                                                                     <title>s_m_OSC_SiebelToOSC_OLISyncKeyProcessed</title>
+                                                                     <serviceName>ICSExecuteDataTask</serviceName>
+                                                                     <serviceGUID/>
+                                                                     <serviceInput>
+                                                                        <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_SiebelToOSC_OLISyncKeyProcessed</parameter>
+                                                                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                                        <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                                                        <parameter name="GUID" source="constant" updatable="true">3ye5Ul4V7BJj0TbU6xl6aL</parameter>
+                                                                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                                        <parameter name="taskField" source="nested">
+                                                                           <operation source="field" to="s-m-OSC-SiebelToOSC-OLISyncKeyProcessed">temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed</operation>
+                                                                           <operation source="field"
+                                                                                      to="s-m-OSC-SiebelToOSC-OLISyncKeyProcessed/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                                           <operation source="field"
+                                                                                      to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                                           <operation source="field"
+                                                                                      to="s-m-OSC-SiebelToOSC-OLISyncKeyProcessed/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                                           <operation source="field"
+                                                                                      to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                                        </parameter>
+                                                                     </serviceInput>
+                                                                     <serviceOutput>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Run_Id">Run Id</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Start_Time">Start Time</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/End_Time">End Time</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Object_Name">Object Name</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Log_Id">Log Id</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Task_Id">Task Id</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Task_Status">Task Status</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Success_Source_Rows">Success Source Rows</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Success_Target_Rows">Success Target Rows</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/Error_Message">Error Message</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                                        <operation source="field"
+                                                                                   to="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/output/FirstErrorCode">First Error Code</operation>
+                                                                     </serviceOutput>
+                                                                  </service>
+                                                                  <link id="mckc8f07" targetId="mckc8ezx"/>
+                                                                  <events>
+                                                                     <catch faultField="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/fault"
+                                                                            id="mckc8euu"
+                                                                            interrupting="true"
+                                                                            name="error"/>
+                                                                     <catch faultField="temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed/fault"
+                                                                            id="mckc8euv"
+                                                                            interrupting="true"
+                                                                            name="warning"/>
+                                                                  </events>
+                                                               </eventContainer>
+                                                               <container id="mckc8ezx" type="exclusive">
+                                                                  <title>Link_Condition_mckc8ezw</title>
+                                                                  <flow id="mckc8ezz">
+                                                                     <eventContainer id="mckc8evm">
+                                                                        <service id="mckc8evn">
+                                                                           <title>cmd_DeleteLogFiles</title>
+                                                                           <serviceName>ICSExecuteCommandTask</serviceName>
+                                                                           <serviceGUID/>
+                                                                           <serviceInput>
+                                                                              <parameter name="Task Name" source="constant">cmd_DeleteLogFiles</parameter>
+                                                                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                                                              <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                                                              <parameter name="Script Name" source="constant"/>
+                                                                              <parameter name="Input Arguments" source="constant"/>
+                                                                              <parameter name="Work Directory" source="constant"/>
+                                                                              <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                                                              <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                                                                              <parameter name="taskField" source="nested">
+                                                                                 <operation source="field" to="INFA-commandTask">temp.cmd_DeleteLogFiles</operation>
+                                                                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Delete Log Files</operation>
+                                                                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                                                                 <operation source="constant"
+                                                                                            to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC_Share\run_oscdeleteinfalogfiles.cmd"</operation>
+                                                                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                                                              </parameter>
+                                                                           </serviceInput>
+                                                                           <serviceOutput>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/Run_Id">Run Id</operation>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/Start_Time">Start Time</operation>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/End_Time">End Time</operation>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/Execution_Status">Execution Status</operation>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/Exit_Code">Exit Code</operation>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles/output/Std_Error">Std Error</operation>
+                                                                           </serviceOutput>
+                                                                        </service>
+                                                                        <flow id="mckc8f11">
+                                                                           <assignment id="mckc8f10">
+                                                                              <title>Command_Task_Success_Output_Assignment_cmd_DeleteLogFiles</title>
+                                                                              <operation source="field" to="temp.cmd_DeleteLogFiles_Execution_Status">temp.cmd_DeleteLogFiles[1]/output[1]/Execution_Status</operation>
+                                                                           </assignment>
+                                                                           <link id="mckc8f12" targetId="mckc8evm" type="containerLink"/>
+                                                                        </flow>
+                                                                        <flow id="mckc8f14">
+                                                                           <assignment id="mckc8f17">
+                                                                              <title>Command_Task_Failure_Output_Assignment_cmd_DeleteLogFiles</title>
+                                                                              <operation source="constant" to="temp.cmd_DeleteLogFiles_Execution_Status">FAILED</operation>
+                                                                           </assignment>
+                                                                           <link id="mckc8f15" targetId="mckc8evm" type="containerLink"/>
+                                                                        </flow>
+                                                                        <link id="mckc8f13" targetId="mckc8f11" type="containerLink"/>
+                                                                        <events>
+                                                                           <catch faultField="temp.cmd_DeleteLogFiles/fault"
+                                                                                  id="mckc8evo"
+                                                                                  interrupting="true"
+                                                                                  name="error">
+                                                                              <link id="mckc8f16" targetId="mckc8f14" type="containerLink"/>
+                                                                           </catch>
+                                                                        </events>
+                                                                     </eventContainer>
+                                                                     <link id="mckc8ezy" targetId="mckc8ezx" type="containerLink"/>
+                                                                  </flow>
+                                                                  <flow id="mckc8f01">
+                                                                     <link id="mckc8f00" targetId="mckc8ezx" type="containerLink"/>
+                                                                  </flow>
+                                                                  <link id="mckc8f02" targetId="mckc8ezz" type="containerLink">
+                                                                     <condition source="formula">
+                                                                        <function name="starts-with-any-of">
+                                                                           <arg name="left">{$temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/output[1]/Task_Status}</arg>
+                                                                           <arg name="right">1,2</arg>
+                                                                        </function>
+                                                                     </condition>
+                                                                  </link>
+                                                                  <link id="mckc8f03" targetId="mckc8f01" type="containerLink"/>
+                                                               </container>
+                                                               <link id="mckc8ezi" targetId="mckc8ezh" type="containerLink"/>
+                                                            </flow>
+                                                            <flow id="mckc8ezl">
+                                                               <link id="mckc8ezk" targetId="mckc8ezh" type="containerLink"/>
+                                                            </flow>
+                                                            <link id="mckc8ezm" targetId="mckc8ezj" type="containerLink">
+                                                               <condition source="formula">
+                                                                  <function name="starts-with-any-of">
+                                                                     <arg name="left">{$temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status}</arg>
+                                                                     <arg name="right">1,2</arg>
+                                                                  </function>
+                                                               </condition>
+                                                            </link>
+                                                            <link id="mckc8ezn" targetId="mckc8ezl" type="containerLink"/>
+                                                         </container>
+                                                         <link id="mckc8ez2" targetId="mckc8ez1" type="containerLink"/>
+                                                      </flow>
+                                                      <flow id="mckc8ez5">
+                                                         <link id="mckc8ez4" targetId="mckc8ez1" type="containerLink"/>
+                                                      </flow>
+                                                      <link id="mckc8ez6" targetId="mckc8ez3" type="containerLink">
+                                                         <condition source="formula">
+                                                            <function name="starts-with-any-of">
+                                                               <arg name="left">{$temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status}</arg>
+                                                               <arg name="right">1,2</arg>
+                                                            </function>
+                                                         </condition>
+                                                      </link>
+                                                      <link id="mckc8ez7" targetId="mckc8ez5" type="containerLink"/>
+                                                   </container>
+                                                   <link id="mckc8eym" targetId="mckc8eyl" type="containerLink"/>
+                                                </flow>
+                                                <flow id="mckc8eyp">
+                                                   <link id="mckc8eyo" targetId="mckc8eyl" type="containerLink"/>
+                                                </flow>
+                                                <link id="mckc8eyq" targetId="mckc8eyn" type="containerLink">
+                                                   <condition source="formula">
+                                                      <function name="starts-with-any-of">
+                                                         <arg name="left">{$temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status}</arg>
+                                                         <arg name="right">SUCCEEDED,WARNING</arg>
+                                                      </function>
+                                                   </condition>
+                                                </link>
+                                                <link id="mckc8eyr" targetId="mckc8eyp" type="containerLink"/>
+                                             </container>
+                                             <link id="mckc8ey6" targetId="mckc8ey5" type="containerLink"/>
+                                          </flow>
+                                          <flow id="mckc8ey9">
+                                             <link id="mckc8ey8" targetId="mckc8ey5" type="containerLink"/>
+                                          </flow>
+                                          <link id="mckc8eya" targetId="mckc8ey7" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="starts-with-any-of">
+                                                   <arg name="left">{$temp.cmd_SiebelToOSC_Opty_Execution_Status}</arg>
+                                                   <arg name="right">SUCCEEDED,WARNING</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="mckc8eyb" targetId="mckc8ey9" type="containerLink"/>
+                                       </container>
+                                       <link id="mckc8exq" targetId="mckc8exp" type="containerLink"/>
+                                    </flow>
+                                    <flow id="mckc8ext">
+                                       <link id="mckc8exs" targetId="mckc8exp" type="containerLink"/>
+                                    </flow>
+                                    <link id="mckc8exu" targetId="mckc8exr" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="starts-with-any-of">
+                                             <arg name="left">{$temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status}</arg>
+                                             <arg name="right">1,2</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="mckc8exv" targetId="mckc8ext" type="containerLink"/>
+                                 </container>
+                                 <link id="mckc8exa" targetId="mckc8ex9" type="containerLink"/>
+                              </flow>
+                              <flow id="mckc8exd">
+                                 <link id="mckc8exc" targetId="mckc8ex9" type="containerLink"/>
+                              </flow>
+                              <link id="mckc8exe" targetId="mckc8exb" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="starts-with-any-of">
+                                       <arg name="left">{$temp.cmd_SiebelToOSC_OLI_Execution_Status}</arg>
+                                       <arg name="right">SUCCEEDED,WARNING</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="mckc8exf" targetId="mckc8exd" type="containerLink"/>
+                           </container>
+                           <link id="mckc8ewu" targetId="mckc8ewt" type="containerLink"/>
+                        </flow>
+                        <flow id="mckc8ewx">
+                           <link id="mckc8eww" targetId="mckc8ewt" type="containerLink"/>
+                        </flow>
+                        <link id="mckc8ewy" targetId="mckc8ewv" type="containerLink">
+                           <condition source="formula">
+                              <function name="starts-with-any-of">
+                                 <arg name="left">{$temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status}</arg>
+                                 <arg name="right">1,2</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="mckc8ewz" targetId="mckc8ewx" type="containerLink"/>
+                     </container>
+                     <link id="mckc8ewe" targetId="mckc8ewd" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8ewh">
+                     <link id="mckc8ewg" targetId="mckc8ewd" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8ewi" targetId="mckc8ewf" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left" source="formula">{xs:integer($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2'))}</arg>
+                           <arg name="right">1</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8ewj" targetId="mckc8ewh" type="containerLink"/>
+                  <link id="mckc8f1g" targetId="mckc8evu"/>
+               </container>
+               <container id="mckc8evu" type="exclusive">
+                  <title>Decision_Email</title>
+                  <flow id="mckc8evw">
+                     <service id="mckc8evp">
+                        <title>Email</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">adam.coulton.ext@siemens-healthineers.com;ITEACRMConversionsandInterfaces@internal.siemens-healthineers.com; siebelccinterfaces.healthcare@internal.siemens-healthineers.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">PROD - wf_m_OSC_SiebelToOSC_Opportunity FAILED!</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant">Check the workflow to determine which job failed and contact Adam Coulton.</parameter>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="mckc8f08" targetId="mckc8evq"/>
+                     </service>
+                     <eventContainer id="mckc8evq">
+                        <service id="mckc8evr">
+                           <title>SendEmail</title>
+                           <serviceName>ICSExecuteCommandTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant">SendEmail</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                              <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                              <parameter name="Script Name" source="constant"/>
+                              <parameter name="Input Arguments" source="constant"/>
+                              <parameter name="Work Directory" source="constant"/>
+                              <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                              <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="INFA-commandTask">temp.SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                 <operation source="constant"
+                                            to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscsendemail.bat {$temp.PMWorkflowName}"</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.SendEmail/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.SendEmail/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/Execution_Status">Execution Status</operation>
+                              <operation source="field" to="temp.SendEmail/output/Exit_Code">Exit Code</operation>
+                              <operation source="field" to="temp.SendEmail/output/Std_Error">Std Error</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.SendEmail/fault"
+                                  id="mckc8evs"
+                                  interrupting="true"
+                                  name="error"/>
+                        </events>
+                     </eventContainer>
+                     <link id="mckc8evv" targetId="mckc8evu" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8evy">
+                     <link id="mckc8evx" targetId="mckc8evu" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8evz" targetId="mckc8evw" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left" source="formula">{xs:integer((((((((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and ($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '3')) or ((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and ($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'FAILED'))) or (((((((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_Opty_Execution_Status = 'WARNING'))) and (($temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/output[1]/Task_Status = '2'))) and ($temp.cmd_DeleteLogFiles_Execution_Status = 'FAILED'))) or ((((((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_Opty_Execution_Status = 'WARNING'))) and (($temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status = '2'))) and ($temp.s_m_OSC_SiebelToOSC_OLISyncKeyProcessed[1]/output[1]/Task_Status = '3'))) or (((((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_Opty_Execution_Status = 'WARNING'))) and (($temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '2'))) and ($temp.s_m_OSC_SiebelToOSC_WSOLIProcessed[1]/output[1]/Task_Status = '3'))) or ((((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_Opty_Execution_Status = 'WARNING'))) and (($temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'WARNING'))) and ($temp.s_m_OSC_SiebelToOSC_WSOptyProcessed[1]/output[1]/Task_Status = '3'))) or (((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_Opty_Execution_Status = 'WARNING'))) and ($temp.cmd_SiebelToOSC_OLISyncKey_Execution_Status = 'FAILED'))) or ((((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '2'))) and ($temp.cmd_SiebelToOSC_Opty_Execution_Status = 'FAILED'))) or (((($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Success_Source_Rows &gt; 0 and ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_SiebelToOSC_OLI[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_SiebelToOSC_OLI_Execution_Status = 'SUCCEEDED' or $temp.cmd_SiebelToOSC_OLI_Execution_Status = 'WARNING'))) and ($temp.s_m_OSC_SiebelToOSC_Opportunity[1]/output[1]/Task_Status = '3'))) or ($temp.s_m_OSC_SiebelToOSC_SiebelDataImport[1]/output[1]/Task_Status = '3'))}</arg>
+                           <arg name="right">1</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8ew0" targetId="mckc8evy" type="containerLink"/>
+                  <link id="mckc8f0b" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-Opportunity"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-Opportunity">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-OLI"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-OLI">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-OLISyncKeyProcessed"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-OLISyncKeyProcessed">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-WSOLIProcessed"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-WSOLIProcessed">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-WSOptyProcessed"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-WSOptyProcessed">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-SiebelToOSC-SiebelDataImport"
+                              isByCopy="true"
+                              name="s-m-OSC-SiebelToOSC-SiebelDataImport">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>dHrwzBBbzaVeE98MoHrNKj</types1:GUID>
+      <types1:DisplayName>ARCHIVE_wf_m_OSC_SiebelToOSC_Opportunity</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-09-03T11:41:37.014Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

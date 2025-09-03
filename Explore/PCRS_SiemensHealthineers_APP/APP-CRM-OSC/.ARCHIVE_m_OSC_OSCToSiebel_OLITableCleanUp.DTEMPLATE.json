@@ -1,0 +1,30 @@
+{
+  "objectInfo" : {
+    "id" : "aF3NC5nlWaZgIICg2nql86",
+    "name" : "ARCHIVE_m_OSC_OSCToSiebel_OLITableCleanUp",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V17000000003ODT"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "Mapping pushed from PC to ICS : ARCHIVE_m_OSC_OSCToSiebel_OLITableCleanUp",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2025-09-03T11:41:37.934Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : "json",
+  "readableFilePresent" : true
+}

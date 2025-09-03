@@ -1,0 +1,445 @@
+{
+  "name" : "s_m_OSC_Delete_AccountTeam_InactiveUsers",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Delete_AccountTeam_InactiveUsers",
+  "runtimeEnvironmentId" : "@4egFi0KUPZQeOh3ExBpF65",
+  "runtimeEnvironmentName" : "Akshata - INW66SLF64-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_ACCNT_RESOURCE$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_T_OSC_ACCNT_RESOURCE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "true",
+        "isMsrcSortParameterized" : "false",
+        "msrcFilterDefault" : "T_OSC_RESOURCE.STATUS IS NOT NULL AND\r\nT_OSC_RESOURCE.STATUS = 'Inactive' AND\r\nT_OSC_ORG.BLOCKINGSTATUS = 'Verified and Active'",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_ACCNT_RESOURCE"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_RESOURCE",
+          "label" : "T_OSC_RESOURCE",
+          "metadataUpdated" : false
+        },
+        "userDefinedJoin" : "T_OSC_ACCNT_RESOURCE.RESOURCE_ID = T_OSC_RESOURCE.PARTYID AND\r\nT_OSC_ORG.SALESACCOUNTID = T_OSC_ACCNT_RESOURCE.SALES_ACCOUNT_ID",
+        "advancedFilterExpression" : "T_OSC_RESOURCE.STATUS IS NOT NULL AND\r\nT_OSC_RESOURCE.STATUS = 'Inactive' AND\r\nT_OSC_ORG.BLOCKINGSTATUS = 'Verified and Active'",
+        "singleMode" : false,
+        "objects" : [
+          {
+            "name" : "T_OSC_RESOURCE",
+            "label" : "T_OSC_RESOURCE",
+            "metadataUpdated" : false
+          },
+          {
+            "name" : "T_OSC_ORG",
+            "label" : "T_OSC_ORG",
+            "metadataUpdated" : false
+          },
+          {
+            "name" : "T_OSC_ACCNT_RESOURCE",
+            "label" : "T_OSC_ACCNT_RESOURCE",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_account_ownerupdate$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_account_ownerupdate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_account_ownerupdateTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_account_ownerupdateTgtParameter",
+        "default" : "TMAccountOwnerUpdate-Account.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_account_ownerupdate"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMAccountOwnerUpdate-Account.csv",
+      "targetObjectLabel" : "TMAccountOwnerUpdate-Account.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMAccountOwnerUpdate-Account.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMAccountOwnerUpdate-Account.csv",
+          "label" : "TMAccountOwnerUpdate-Account.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMAccountOwnerUpdate-Account.csv",
+            "label" : "TMAccountOwnerUpdate-Account.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMAccountOwnerUpdate-Account.csv",
+      "objectLabel" : "TMAccountOwnerUpdate-Account.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_tm_accountteam_Add$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_tm_accountteam_Add",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_tm_accountteam_AddTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_tm_accountteam_AddTgtParameter",
+        "default" : "TMAddToSalesTeam-Account.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_tm_accountteam_Add"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMAddToSalesTeam-Account.csv",
+      "targetObjectLabel" : "TMAddToSalesTeam-Account.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMAddToSalesTeam-Account.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMAddToSalesTeam-Account.csv",
+          "label" : "TMAddToSalesTeam-Account.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMAddToSalesTeam-Account.csv",
+            "label" : "TMAddToSalesTeam-Account.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMAddToSalesTeam-Account.csv",
+      "objectLabel" : "TMAddToSalesTeam-Account.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_tm_accountteam_remove$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_tm_accountteam_remove",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_tm_accountteam_removeTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_tm_accountteam_removeTgtParameter",
+        "default" : "TMDeleteFromSalesTeam-Account.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_tm_accountteam_remove"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMDeleteFromSalesTeam-Account.csv",
+      "targetObjectLabel" : "TMDeleteFromSalesTeam-Account.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMDeleteFromSalesTeam-Account.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMDeleteFromSalesTeam-Account.csv",
+          "label" : "TMDeleteFromSalesTeam-Account.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMDeleteFromSalesTeam-Account.csv",
+            "label" : "TMDeleteFromSalesTeam-Account.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMDeleteFromSalesTeam-Account.csv",
+      "objectLabel" : "TMDeleteFromSalesTeam-Account.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_T_OSC_RESOURCE$",
+      "type" : "LOOKUP",
+      "label" : "Source",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "default" : "T_OSC_RESOURCE",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "LKP_T_OSC_RESOURCE"
+      },
+      "lookupConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "lookupObject" : "T_OSC_RESOURCE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "false",
+        "Case Sensitive String Comparison" : "false",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Subsecond Precision" : "6",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_RESOURCE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@6HLqhV4k8wAhgTGANAPbgN",
+  "mappingTemplateName" : "m_OSC_Delete_AccountTeam_InactiveUsers",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    },
+    {
+      "name" : "Session Log File Name",
+      "value" : "s_m_OSC_Delete_AccountTeam_InactiveUsers_$$runId$$.log"
+    },
+    {
+      "name" : "Treat source rows as",
+      "value" : "Insert"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:22 PDT"
+}

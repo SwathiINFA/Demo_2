@@ -1,0 +1,191 @@
+{
+  "name" : "s_m_OSC_Conversion_OSCToSiebelOLISyncKey",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Conversion_OSCToSiebelOLISyncKey",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_OPTY_REVENUE$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_T_OSC_OPTY_REVENUE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_OPTY_REVENUE"
+      },
+      "sourceConnectionId" : "@1mML2mZtySScwVITqgzqM4",
+      "connectionName" : "DWQA2_OSC_TEST",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_OPTY_REVENUE",
+          "label" : "T_OSC_OPTY_REVENUE",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "T_OSC_OPTY_REVENUE",
+            "label" : "T_OSC_OPTY_REVENUE",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$S_OPTY$",
+      "type" : "TARGET",
+      "label" : "S_OPTY",
+      "uiProperties" : {
+        "cnxtype" : "ODBC",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "S_OPTY",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "defaultTargetUpdateColumns" : "ROW_ID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "S_OPTY"
+      },
+      "targetConnectionId" : "@9vpaxJFcxD2fii9oqNEVIV",
+      "connectionName" : "SBL78D19",
+      "targetObject" : "S_OPTY",
+      "targetObjectLabel" : "S_OPTY",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : true,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "ROW_ID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "S_OPTY",
+      "objectLabel" : "S_OPTY",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@8dljAyL5sMihTR9svpue22",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_Conversion_OSCToSiebelOLISyncKey",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:25 PDT"
+}

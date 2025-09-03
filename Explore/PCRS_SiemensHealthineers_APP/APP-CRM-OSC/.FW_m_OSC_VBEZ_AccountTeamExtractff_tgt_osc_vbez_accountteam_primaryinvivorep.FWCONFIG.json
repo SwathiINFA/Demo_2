@@ -1,0 +1,30 @@
+{
+  "objectInfo" : {
+    "id" : "34kP4hD64BthNFH4Uqwcko",
+    "name" : "FW_m_OSC_VBEZ_AccountTeamExtractff_tgt_osc_vbez_accountteam_primaryinvivorep",
+    "type" : "FWCONFIG",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V290000000008SV"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2025-09-03T11:41:37.941Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : "json",
+  "readableFilePresent" : true
+}

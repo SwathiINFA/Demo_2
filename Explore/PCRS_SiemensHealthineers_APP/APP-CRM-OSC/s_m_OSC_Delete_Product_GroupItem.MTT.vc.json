@@ -1,0 +1,288 @@
+{
+  "name" : "s_m_OSC_Delete_Product_GroupItem",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Delete_Product_GroupItem",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_ff_src_productgroupitem$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_ff_src_productgroupitem",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_ff_src_productgroupitemSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_ff_src_productgroupitemSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_ff_src_productgroupitem"
+      },
+      "sourceConnectionId" : "@4AACvb6BEjXkZ9SNX6FIKF",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Product_GroupItem",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ProductGroupItem-Export.csv",
+          "label" : "ProductGroupItem-Export.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ProductGroupItem-Export.csv",
+            "label" : "ProductGroupItem-Export.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "Source filename" : "ProductGroupItem-Export.csv"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_product_groupitem$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_product_groupitem",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_product_groupitemTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_product_groupitemTgtParameter",
+        "default" : "ProductGroupItem-Products.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_product_groupitem"
+      },
+      "targetConnectionId" : "@fUwroZHBtGPc9GmzKbMVWJ",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Product",
+      "targetObject" : "ProductGroupItem-Products.csv",
+      "targetObjectLabel" : "ProductGroupItem-Products.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "ProductGroupItem-Products.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ProductGroupItem-Products.csv",
+          "label" : "ProductGroupItem-Products.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ProductGroupItem-Products.csv",
+            "label" : "ProductGroupItem-Products.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ProductGroupItem-Products.csv",
+      "objectLabel" : "ProductGroupItem-Products.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_EligibilityRule$",
+      "type" : "LOOKUP",
+      "label" : "LKP_EligibilityRule",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "LKP_EligibilityRuleLookupParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "LKP_EligibilityRuleLookupParameter",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "default" : "ProductEligibilityRule-Export.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isFFRetainMetaData" : "true",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "LKP_EligibilityRule"
+      },
+      "lookupConnectionId" : "@2dr3rS2eKaufp2EVuGRHw9",
+      "connectionName" : "default-connection-name_Flat_File",
+      "lookupObject" : "ProductEligibilityRule-Export.csv",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "true",
+        "Case Sensitive String Comparison" : "true",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Lookup source filename" : "ProductEligibilityRule-Export.csv",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Datetime Format" : "A  19 mm/dd/yyyy hh24:mi:ss",
+        "Subsecond Precision" : "0",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ProductEligibilityRule-Export.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@6O6ylARb984ihPEtO82wkW",
+  "mappingTemplateName" : "m_OSC_Delete_Product_GroupItem",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:29 PDT"
+}

@@ -1,0 +1,618 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>OlA1vyoY2G7QnG5-gt-262391-2025-07-09T09:54:21.649Z::tf.xml</types1:EntryId>
+      <types1:Name>wf_m_OSC_CRM_LTWLeads</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>These workflows are created from the Workflow Generation Wizard.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anfrancis_icinq</types1:CreatedBy>
+      <types1:CreationDate>2025-07-09T09:54:22Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   xmlns:ns2="http://informatica.com/HumanTask/2022/12/schema/model/humanTaskCommon.xsd"
+                   displayName="wf_m_OSC_CRM_LTWLeads"
+                   name="wf_m_OSC_CRM_LTWLeads"
+                   overrideAPIName="false">
+            <appliesTo/>
+            <description>These workflows are created from the Workflow Generation Wizard.</description>
+            <tags/>
+            <generator>PC2Cloud Workflow Converter v1</generator>
+            <input>
+               <parameter name="InputMappingTaskParameterFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter name="InputMappingTaskParameterFileName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="s_m_OSC_CRM_LTWLeads" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-CRM-LTWLeads</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="UploadFileToContentServer" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="RunImportManagement_LTWLeads" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="SendEmail" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="PMBadFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMCacheDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMExtProcDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMFailureEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMFolderName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetLocation()</option>
+                  </options>
+               </field>
+               <field description="" name="PMIntegrationServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMLookupFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryUserName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getUserName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMRootDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSessionLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSessionRunMode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSourceFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMStorageDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMSuccessEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMTargetFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMTempDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunId" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getProcessId()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunInstanceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue"/>
+                  </options>
+               </field>
+               <field description="" name="SYSDATE" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">fn:current-date()</option>
+                  </options>
+               </field>
+               <field description="" name="WORKFLOWSTARTTIME" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getInstanceStartTime()</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="UploadFileToContentServer_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="RunImportManagement_LTWLeads_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedGroups>
+                     <group>CDI_TFlow_API_group</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <title>Start</title>
+                  <link id="mckc8dvx" targetId="mckc8dvv"/>
+               </start>
+               <assignment id="mckc8dvv">
+                  <title>Assignment_PC_Variables</title>
+                  <operation source="constant" to="temp.PMBadFileDir"/>
+                  <operation source="constant" to="temp.PMCacheDir"/>
+                  <operation source="constant" to="temp.PMExtProcDir"/>
+                  <operation source="constant" to="temp.PMFailureEmailUser"/>
+                  <operation source="formula" to="temp.PMFolderName">
+                     <expression language="XQuery">util:getAssetLocation()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMIntegrationServiceName"/>
+                  <operation source="constant" to="temp.PMLookupFileDir"/>
+                  <operation source="constant" to="temp.PMRepositoryServiceName"/>
+                  <operation source="formula" to="temp.PMRepositoryUserName">
+                     <expression language="XQuery">util:getUserName()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMRootDir"/>
+                  <operation source="constant" to="temp.PMSessionLogDir"/>
+                  <operation source="constant" to="temp.PMSessionRunMode"/>
+                  <operation source="constant" to="temp.PMSourceFileDir"/>
+                  <operation source="constant" to="temp.PMStorageDir"/>
+                  <operation source="constant" to="temp.PMSuccessEmailUser"/>
+                  <operation source="constant" to="temp.PMTargetFileDir"/>
+                  <operation source="constant" to="temp.PMTempDir"/>
+                  <operation source="constant" to="temp.PMWorkflowLogDir"/>
+                  <operation source="formula" to="temp.PMWorkflowName">
+                     <expression language="XQuery">util:getAssetName()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.PMWorkflowRunId">
+                     <expression language="XQuery">util:getProcessId()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMWorkflowRunInstanceName"/>
+                  <operation source="formula" to="temp.SYSDATE">
+                     <expression language="XQuery">fn:current-date()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.WORKFLOWSTARTTIME">
+                     <expression language="XQuery">util:getInstanceStartTime()</expression>
+                  </operation>
+                  <link id="mckc8dvy" targetId="mckc8dvn"/>
+               </assignment>
+               <assignment id="mckc8dvn">
+                  <title>Assignment_PC_Workflow_Parameter_File</title>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileDir">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileDir)) then '' else $input.InputMappingTaskParameterFileDir</expression>
+                  </operation>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileName">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileName)) then '' else $input.InputMappingTaskParameterFileName</expression>
+                  </operation>
+                  <link id="mckc8dvz" targetId="mckc8dv7"/>
+               </assignment>
+               <eventContainer id="mckc8dv7">
+                  <service id="mckc8dv8">
+                     <title>s_m_OSC_CRM_LTWLeads</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_CRM_LTWLeads</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">3GVqCJIxGpDgAUgw3ZxsuR</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">true</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="s-m-OSC-CRM-LTWLeads">temp.s_m_OSC_CRM_LTWLeads</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-CRM-LTWLeads/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_CRM_LTWLeads[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-CRM-LTWLeads/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_CRM_LTWLeads[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Task_Id">Task Id</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_CRM_LTWLeads/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_CRM_LTWLeads/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/Error_Message">Error Message</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/output/FirstErrorCode">First Error Code</operation>
+                        <operation source="field" to="temp.s_m_OSC_CRM_LTWLeads/inout/PROCESSED_DATE">PROCESSED_DATE</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="mckc8dwf" targetId="mckc8dw5"/>
+                  <events>
+                     <catch faultField="temp.s_m_OSC_CRM_LTWLeads/fault"
+                            id="mckc8dv9"
+                            interrupting="true"
+                            name="error"/>
+                     <catch faultField="temp.s_m_OSC_CRM_LTWLeads/fault"
+                            id="mckc8dva"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <container id="mckc8dw5" type="exclusive">
+                  <title>Link_Condition_mckc8dw4</title>
+                  <flow id="mckc8dw7">
+                     <eventContainer id="mckc8dvc">
+                        <service id="mckc8dvd">
+                           <title>UploadFileToContentServer</title>
+                           <serviceName>ICSExecuteCommandTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant">UploadFileToContentServer</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                              <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                              <parameter name="Script Name" source="constant"/>
+                              <parameter name="Input Arguments" source="constant"/>
+                              <parameter name="Work Directory" source="constant"/>
+                              <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                              <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="INFA-commandTask">temp.UploadFileToContentServer</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">UploadFileToContentServer</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                 <operation source="constant"
+                                            to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\osc-xfer\RunUploads-LTWLead.cmd &gt; D:\CRM\osc-xfer\outLTWLeadLog"</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.UploadFileToContentServer/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.UploadFileToContentServer/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.UploadFileToContentServer/output/End_Time">End Time</operation>
+                              <operation source="field"
+                                         to="temp.UploadFileToContentServer/output/Execution_Status">Execution Status</operation>
+                              <operation source="field" to="temp.UploadFileToContentServer/output/Exit_Code">Exit Code</operation>
+                              <operation source="field" to="temp.UploadFileToContentServer/output/Std_Error">Std Error</operation>
+                           </serviceOutput>
+                        </service>
+                        <flow id="mckc8dx2">
+                           <assignment id="mckc8dx1">
+                              <title>Command_Task_Success_Output_Assignment_UploadFileToContentServer</title>
+                              <operation source="field" to="temp.UploadFileToContentServer_Execution_Status">temp.UploadFileToContentServer[1]/output[1]/Execution_Status</operation>
+                           </assignment>
+                           <link id="mckc8dx3" targetId="mckc8dvc" type="containerLink"/>
+                        </flow>
+                        <flow id="mckc8dx5">
+                           <assignment id="mckc8dx8">
+                              <title>Command_Task_Failure_Output_Assignment_UploadFileToContentServer</title>
+                              <operation source="constant" to="temp.UploadFileToContentServer_Execution_Status">SUCCEEDED</operation>
+                           </assignment>
+                           <link id="mckc8dx6" targetId="mckc8dvc" type="containerLink"/>
+                        </flow>
+                        <link id="mckc8dwv" targetId="mckc8dwl"/>
+                        <link id="mckc8dx4" targetId="mckc8dx2" type="containerLink"/>
+                        <events>
+                           <catch faultField="temp.UploadFileToContentServer/fault"
+                                  id="mckc8dve"
+                                  interrupting="true"
+                                  name="error">
+                              <link id="mckc8dx7" targetId="mckc8dx5" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <container id="mckc8dwl" type="exclusive">
+                        <title>Link_Condition_mckc8dwk</title>
+                        <flow id="mckc8dwn">
+                           <wait id="mckc8dvg">
+                              <title>Timer</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">5</arg>
+                                    <arg name="scale">M</arg>
+                                    <arg name="businessdays"/>
+                                 </function>
+                              </duration>
+                              <link id="mckc8dww" targetId="mckc8dvh"/>
+                           </wait>
+                           <eventContainer id="mckc8dvh">
+                              <service id="mckc8dvi">
+                                 <title>RunImportManagement_LTWLeads</title>
+                                 <serviceName>ICSExecuteCommandTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Task Name" source="constant">RunImportManagement_LTWLeads</parameter>
+                                    <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                    <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                    <parameter name="Script Name" source="constant"/>
+                                    <parameter name="Input Arguments" source="constant"/>
+                                    <parameter name="Work Directory" source="constant"/>
+                                    <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                    <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field" to="INFA-commandTask">temp.RunImportManagement_LTWLeads</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">cmd_runimportmanagement</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                       <operation source="constant"
+                                                  to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscltwlead.bat"</operation>
+                                       <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads/output/Run_Id">Run Id</operation>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads/output/Start_Time">Start Time</operation>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads/output/End_Time">End Time</operation>
+                                    <operation source="field"
+                                               to="temp.RunImportManagement_LTWLeads/output/Execution_Status">Execution Status</operation>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads/output/Exit_Code">Exit Code</operation>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads/output/Std_Error">Std Error</operation>
+                                 </serviceOutput>
+                              </service>
+                              <flow id="mckc8dxa">
+                                 <assignment id="mckc8dx9">
+                                    <title>Command_Task_Success_Output_Assignment_RunImportManagement_LTWLeads</title>
+                                    <operation source="field" to="temp.RunImportManagement_LTWLeads_Execution_Status">temp.RunImportManagement_LTWLeads[1]/output[1]/Execution_Status</operation>
+                                 </assignment>
+                                 <link id="mckc8dxb" targetId="mckc8dvh" type="containerLink"/>
+                              </flow>
+                              <flow id="mckc8dxd">
+                                 <assignment id="mckc8dxg">
+                                    <title>Command_Task_Failure_Output_Assignment_RunImportManagement_LTWLeads</title>
+                                    <operation source="constant"
+                                               to="temp.RunImportManagement_LTWLeads_Execution_Status">SUCCEEDED</operation>
+                                 </assignment>
+                                 <link id="mckc8dxe" targetId="mckc8dvh" type="containerLink"/>
+                              </flow>
+                              <link id="mckc8dxc" targetId="mckc8dxa" type="containerLink"/>
+                              <events>
+                                 <catch faultField="temp.RunImportManagement_LTWLeads/fault"
+                                        id="mckc8dvj"
+                                        interrupting="true"
+                                        name="error">
+                                    <link id="mckc8dxf" targetId="mckc8dxd" type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="mckc8dwm" targetId="mckc8dwl" type="containerLink"/>
+                        </flow>
+                        <flow id="mckc8dwp">
+                           <link id="mckc8dwo" targetId="mckc8dwl" type="containerLink"/>
+                        </flow>
+                        <link id="mckc8dwq" targetId="mckc8dwn" type="containerLink">
+                           <condition source="formula">
+                              <function name="starts-with-any-of">
+                                 <arg name="left">{$temp.UploadFileToContentServer_Execution_Status}</arg>
+                                 <arg name="right">SUCCEEDED,WARNING</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="mckc8dwr" targetId="mckc8dwp" type="containerLink"/>
+                     </container>
+                     <link id="mckc8dw6" targetId="mckc8dw5" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8dw9">
+                     <link id="mckc8dw8" targetId="mckc8dw5" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8dwa" targetId="mckc8dw7" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left" source="formula">{xs:integer(($temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '2') and $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Success_Target_Rows &gt; 0)}</arg>
+                           <arg name="right">1</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8dwb" targetId="mckc8dw9" type="containerLink"/>
+                  <link id="mckc8dxp" targetId="mckc8dvo"/>
+               </container>
+               <container id="mckc8dvo" type="exclusive">
+                  <title>Decision_Email</title>
+                  <flow id="mckc8dvq">
+                     <service id="mckc8dvf">
+                        <title>Email</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">adam.coulton.ext@siemens-healthineers.com;ITEACRMConversionsandInterfaces@internal.siemens-healthineers.com; siebelccinterfaces.healthcare@internal.siemens-healthineers.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">*PROD* - wf_m_OSC_CRM_LTWLeads FAILED!</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant">Check to see if the session failed to generate the file or if the cmd failed to upload the file.</parameter>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="mckc8dwx" targetId="mckc8dvk"/>
+                     </service>
+                     <eventContainer id="mckc8dvk">
+                        <service id="mckc8dvl">
+                           <title>SendEmail</title>
+                           <serviceName>ICSExecuteCommandTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant">SendEmail</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                              <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                              <parameter name="Script Name" source="constant"/>
+                              <parameter name="Input Arguments" source="constant"/>
+                              <parameter name="Work Directory" source="constant"/>
+                              <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                              <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="INFA-commandTask">temp.SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                 <operation source="constant"
+                                            to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscsendemail.bat {$temp.PMWorkflowName}"</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.SendEmail/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.SendEmail/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/Execution_Status">Execution Status</operation>
+                              <operation source="field" to="temp.SendEmail/output/Exit_Code">Exit Code</operation>
+                              <operation source="field" to="temp.SendEmail/output/Std_Error">Std Error</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.SendEmail/fault"
+                                  id="mckc8dvm"
+                                  interrupting="true"
+                                  name="error"/>
+                        </events>
+                     </eventContainer>
+                     <link id="mckc8dvp" targetId="mckc8dvo" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8dvs">
+                     <link id="mckc8dvr" targetId="mckc8dvo" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8dvt" targetId="mckc8dvq" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left" source="formula">{xs:integer((((((($temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '2') and $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Success_Target_Rows &gt; 0) and (($temp.UploadFileToContentServer_Execution_Status = 'SUCCEEDED' or $temp.UploadFileToContentServer_Execution_Status = 'WARNING')))) and ($temp.RunImportManagement_LTWLeads_Execution_Status = 'FAILED')) or ((($temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '2') and $temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Success_Target_Rows &gt; 0) and ($temp.UploadFileToContentServer_Execution_Status = 'FAILED'))) or ($temp.s_m_OSC_CRM_LTWLeads[1]/output[1]/Task_Status = '3'))}</arg>
+                           <arg name="right">1</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8dvu" targetId="mckc8dvs" type="containerLink"/>
+                  <link id="mckc8dx0" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              xmlns:processObject="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-CRM-LTWLeads"
+                              isByCopy="true"
+                              name="s-m-OSC-CRM-LTWLeads">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="InOut Parameters" name="inout" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>6FWvQWn3AI1jZnnBBTZgCV</types1:GUID>
+      <types1:DisplayName>wf_m_OSC_CRM_LTWLeads</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-09-03T11:41:36.894Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

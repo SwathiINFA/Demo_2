@@ -1,0 +1,340 @@
+{
+  "name" : "s_m_OSC_UpdateLeadOwnerVSA",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_UpdateLeadOwnerVSA",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_LEAD_TERRITORY$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_LEAD_TERRITORY",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_LEAD_TERRITORY"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_LEAD_TERRITORY",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT DISTINCT\r\nBASE.LeadId,\r\nTERR_RES.FunctionCode,\r\nTERR_RES.ResourceId\r\nFROM \r\nosc.t_osc_lead_territory BASE,\r\n(select territoryid from osc.t_osc_territory TERR\r\nwhere UPPER(TERR.Name) Like 'LEAD_VSA%' \r\nAND TERR.StatusCode = 'FINALIZED'\r\nAND TERR.LatestVersionFlag = 'Y') TERR, \r\nosc.t_osc_lead_resource LEAD_RES,\r\nosc.t_osc_terr_resource TERR_RES,\r\n(select leadid,ownerid from osc.T_OSC_LEAD LEAD where \r\nLEAD.opportunitytype = 'InVivo'\r\nAND LEAD.accountcountry_c = 'US'\r\nAND LEAD.lastassgnmtdate is not null\r\nAND (LEAD.ChannelType <> 'LTW' OR LEAD.ChannelType IS NULL)\r\nAND LEAD.CustomerId IS NULL\r\nAND ((LEAD.businesslinemulti_c NOT LIKE '%DA%' \r\nAND LEAD.businesslinemulti_c NOT LIKE '%US%') OR\r\nLEAD.businesslinemulti_c IS NULL)\r\nAND LEAD.territoryassignflag = 'Y'\r\nAND LEAD.createdate > to_date\r\n('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS')) LEAD\r\nWHERE\r\nLEAD.LeadId = BASE.LeadId \r\nAND TERR.territoryid = BASE.TerritoryId \r\nAND LEAD_RES.LEADID = LEAD.LeadId \r\nAND TERR_RES.TerritoryId = BASE.territoryversionid \r\nAND TERR_RES.ResourceId <> LEAD.OwnerId",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_LEAD_TERRITORY",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_LEAD_VSA_LOG$",
+      "type" : "TARGET",
+      "label" : "T_OSC_LEAD_VSA_LOG",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_LEAD_VSA_LOG",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_LEAD_VSA_LOG"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_LEAD_VSA_LOG",
+      "targetObjectLabel" : "T_OSC_LEAD_VSA_LOG",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_LEAD_VSA_LOG",
+      "objectLabel" : "T_OSC_LEAD_VSA_LOG",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_lead_resource$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_lead_resource",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_lead_resourceTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_lead_resourceTgtParameter",
+        "default" : "LeadTeamResourcePrimary-Leads.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_lead_resource"
+      },
+      "targetConnectionId" : "@9SMcu7aTPhPkDJeCqz0JUz",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Lead",
+      "targetObject" : "LeadTeamResourcePrimary-Leads.csv",
+      "targetObjectLabel" : "LeadTeamResourcePrimary-Leads.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "LeadTeamResourcePrimary-Leads.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "LeadTeamResourcePrimary-Leads.csv",
+          "label" : "LeadTeamResourcePrimary-Leads.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "LeadTeamResourcePrimary-Leads.csv",
+            "label" : "LeadTeamResourcePrimary-Leads.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "LeadTeamResourcePrimary-Leads.csv",
+      "objectLabel" : "LeadTeamResourcePrimary-Leads.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_T_OSC_LEAD_VSA_LOG$",
+      "type" : "LOOKUP",
+      "label" : "LKP_T_OSC_LEAD_VSA_LOG",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "LKP_T_OSC_LEAD_VSA_LOG"
+      },
+      "lookupConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "lookupObject" : "DUMMY_LKP_T_OSC_LEAD_VSA_LOG",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "false",
+        "Case Sensitive String Comparison" : "false",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Subsecond Precision" : "6",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "customQuery" : "SELECT \r\nLEAD_ID as LEAD_ID \r\nFROM \r\nOSC.T_OSC_LEAD_VSA_LOG\r\n--",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_LKP_T_OSC_LEAD_VSA_LOG",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@jSz1rit9M6KjyPe5g3DXYW",
+  "mappingTemplateName" : "m_OSC_UpdateLeadOwnerVSA",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESS_DATE",
+      "initialValue" : "04/01/2025 12:00:00",
+      "datatype" : "STRING",
+      "precision" : "19",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "04/01/2025 12:00:00"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:21 PDT"
+}

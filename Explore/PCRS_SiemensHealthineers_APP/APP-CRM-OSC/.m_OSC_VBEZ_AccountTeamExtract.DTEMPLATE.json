@@ -1,0 +1,53 @@
+{
+  "objectInfo" : {
+    "id" : "3xyTuy71BpOhgFWzr8k2Ar",
+    "name" : "m_OSC_VBEZ_AccountTeamExtract",
+    "type" : "DTEMPLATE",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V17000000003OE8"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "Mapping pushed from PC to ICS : m_OSC_VBEZ_AccountTeamExtract",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "zip",
+  "updateTime" : "2025-09-03T11:41:38.010Z",
+  "objectRefs" : [ {
+    "id" : "34kP4hD64BthNFH4Uqwcko",
+    "name" : "FW_m_OSC_VBEZ_AccountTeamExtractff_tgt_osc_vbez_accountteam_primaryinvivorep",
+    "type" : "FWCONFIG",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "01110V290000000008SV"
+      },
+      "contextAttributes" : [ {
+        "name" : "id",
+        "value" : "@1"
+      } ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "JSON",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/PCRS_SiemensHealthineers_APP/APP-CRM-OSC"
+  } ],
+  "readableFileExtension" : "json",
+  "readableFilePresent" : true
+}

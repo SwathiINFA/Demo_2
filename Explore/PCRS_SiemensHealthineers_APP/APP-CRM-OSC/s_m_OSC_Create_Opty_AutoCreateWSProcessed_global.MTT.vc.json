@@ -1,0 +1,323 @@
+{
+  "name" : "s_m_OSC_Create_Opty_AutoCreateWSProcessed_global",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Create_Opty_AutoCreateWSProcessed_global",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_ff_lkp_osctosiebel_optyupd_results$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_ff_lkp_osctosiebel_optyupd_results",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_ff_lkp_osctosiebel_optyupd_resultsSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_ff_lkp_osctosiebel_optyupd_resultsSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_ff_lkp_osctosiebel_optyupd_results"
+      },
+      "sourceConnectionId" : "@3mmYdjS0UHulG5fd91NWqT",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Opportunity",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 2147483647,
+        "firstDataRow" : 1,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "osc_autocreate_opty_result_nam.txt",
+          "label" : "osc_autocreate_opty_result_nam.txt",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "osc_autocreate_opty_result_nam.txt",
+            "label" : "osc_autocreate_opty_result_nam.txt",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "Source filename" : "osc_autocreate_opty_result_global.txt"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_ERROR_LOG$",
+      "type" : "TARGET",
+      "label" : "T_OSC_ERROR_LOG",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "default" : "T_OSC_ERROR_LOG",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_ERROR_LOG"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_ERROR_LOG",
+      "targetObjectLabel" : "T_OSC_ERROR_LOG",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : true,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_ERROR_LOG",
+      "objectLabel" : "T_OSC_ERROR_LOG",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_OPTY_REV_AUTO_PROCESSED$",
+      "type" : "TARGET",
+      "label" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "default" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "OPPORTUNITYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_OPTY_REV_AUTO_PROCESSED"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+      "targetObjectLabel" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : true,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+      "objectLabel" : "T_OSC_OPTY_REV_AUTO_PROCESSED",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_PROCESSED_LOG$",
+      "type" : "TARGET",
+      "label" : "T_OSC_PROCESSED_LOG",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "default" : "T_OSC_PROCESSED_LOG",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_PROCESSED_LOG"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_PROCESSED_LOG",
+      "targetObjectLabel" : "T_OSC_PROCESSED_LOG",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : true,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_PROCESSED_LOG",
+      "objectLabel" : "T_OSC_PROCESSED_LOG",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@5J0rTNKKjYvgXa61moTCuS",
+  "mappingTemplateName" : "m_OSC_Create_Opty_AutoCreateWSProcessed",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:32 PDT"
+}

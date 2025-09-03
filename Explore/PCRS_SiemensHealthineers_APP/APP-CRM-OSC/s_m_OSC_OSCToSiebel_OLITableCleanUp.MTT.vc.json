@@ -1,0 +1,182 @@
+{
+  "name" : "s_m_OSC_OSCToSiebel_OLITableCleanUp",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_OSCToSiebel_OLITableCleanUp",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_OPTY_REVENUE$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_OPTY_REVENUE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_OPTY_REVENUE"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_OPTY_REVENUE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT T_OSC_OPTY_REVENUE.OPPORTUNITYLINENUMBER, T_OSC_OPTY_REVENUE.SIEBELOPPORTUNITYID, T_OSC_OPTY_REVENUE.PROCESSED_STATUS \r\nFROM\r\nOSC.T_OSC_OPTY_REVENUE\r\nWHERE\r\nLASTUPDATEDATE > sysdate + 1",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_OPTY_REVENUE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_OPTY_REVENUE1$",
+      "type" : "TARGET",
+      "label" : "T_OSC_OPTY_REVENUE1",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "default" : "T_OSC_OPTY_REVENUE",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "OPPORTUNITYLINENUMBER",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_OPTY_REVENUE1"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_OPTY_REVENUE",
+      "targetObjectLabel" : "T_OSC_OPTY_REVENUE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : true,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_OPTY_REVENUE",
+      "objectLabel" : "T_OSC_OPTY_REVENUE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@aF3NC5nlWaZgIICg2nql86",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_OSCToSiebel_OLITableCleanUp",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    },
+    {
+      "name" : "Stop on errors",
+      "value" : "1"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:18 PDT"
+}

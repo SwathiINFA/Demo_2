@@ -1,0 +1,50 @@
+{
+  "name" : "FW_m_OSC_VBEZ_AccountTeamExtractff_tgt_osc_vbez_accountteam_primaryinvivorep",
+  "lineSequential" : false,
+  "padBytes" : 1,
+  "skipRows" : 0,
+  "nullChar" : "*",
+  "nullCharType" : "ASCII",
+  "repeatNullChar" : false,
+  "stripTrailingBlank" : false,
+  "dateFormat" : "A  19 mm/dd/yyyy hh24:mi:ss",
+  "columns" : [
+    {
+      "name" : "ACCOUNT_NUMBER",
+      "nativeType" : "string",
+      "precision" : 10,
+      "scale" : 0
+    },
+    {
+      "name" : "COUNTRY_CODE",
+      "nativeType" : "string",
+      "precision" : 2,
+      "scale" : 0
+    },
+    {
+      "name" : "EMPLOYEE_GID",
+      "nativeType" : "string",
+      "precision" : 8,
+      "scale" : 0
+    },
+    {
+      "name" : "POSITION_TYPE",
+      "nativeType" : "string",
+      "precision" : 2,
+      "scale" : 0
+    },
+    {
+      "name" : "BUSINESS_AREA",
+      "nativeType" : "string",
+      "precision" : 10,
+      "scale" : 0
+    },
+    {
+      "name" : "DESCRIPTION",
+      "nativeType" : "string",
+      "precision" : 50,
+      "scale" : 0
+    }
+  ],
+  "vcsExportTime" : "2025-09-03 04:41:17 PDT"
+}

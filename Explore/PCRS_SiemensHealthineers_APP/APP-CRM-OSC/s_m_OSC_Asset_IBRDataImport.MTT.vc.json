@@ -1,0 +1,176 @@
+{
+  "name" : "s_m_OSC_Asset_IBRDataImport",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Asset_IBRDataImport",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_Ibr_Recommendations$",
+      "type" : "SOURCE",
+      "label" : "SQ_Ibr_Recommendations",
+      "uiProperties" : {
+        "cnxtype" : "ODBC",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_Ibr_RecommendationsSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_Ibr_RecommendationsSrcParameter",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_Ibr_Recommendations"
+      },
+      "sourceConnectionId" : "@izoe4zZh1GFkZMqDpYyQYN",
+      "connectionName" : "OSC_SNOWFLAKE",
+      "sourceObject" : "DUMMY_SQ_Ibr_Recommendations",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT\r\n\"ASSET_ID\" asset_id,\r\n\"Recommended Portfolio Type\" recommended_portfolio_type,\r\n\"Functional Location\" functional_location,\r\n\"Marketing Link\" marketing_link,\r\n\"Marketing Link Label\" marketing_link_label,\r\n\"Prerequisite 1\" prerequisite_1,\r\n\"Prerequisite 2\" prerequisite_2,\r\n\"Prerequisite 3\" prerequisite_3,\r\n\"Recommendation Priority\" recommendation_priority,\r\n\"Typical Recommended Portfolio\" typical_recommended_portfolio,\r\n\"Recommendation\" recommendation_overview,\r\n\"Service Profitability (Category)\" service_profitability_category,\r\n\"System prioritized for sales action (Flag)\" system_prioritized_flag,\r\n\"Tree Status (OPAL)\" tree_status_opal\r\nFROM \r\n\"ACCESSLAYER\".\"AC_CRMCLOUD_999_FLATTABLES_4_EXPERTUSER_P\".\"IBR Recommendations\" \r\nWHERE\r\n\"ASSET_ID\" is not null and\r\n\"Recommended Portfolio Type\" is not null and \r\n\"Recommended Portfolio Type\" != 'NULL' and \r\n\"Typical Recommended Portfolio\" != 'NULL' and  \r\n\"Typical Recommended Portfolio\" is not null",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_Ibr_Recommendations",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ASSET_IBR$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ASSET_IBR",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "T_OSC_TEMP_ASSET_IBRTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "T_OSC_TEMP_ASSET_IBRTgtParameter",
+        "default" : "T_OSC_TEMP_ASSET_IBR",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ASSET_IBR"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ASSET_IBR",
+      "targetObjectLabel" : "T_OSC_TEMP_ASSET_IBR",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : true,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "INSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ASSET_IBR",
+      "objectLabel" : "T_OSC_TEMP_ASSET_IBR",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@1Ui0gr6ilo7lYcG4ZTrLyW",
+  "mappingTemplateName" : "m_OSC_Asset_IBRDataImport",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:24 PDT"
+}

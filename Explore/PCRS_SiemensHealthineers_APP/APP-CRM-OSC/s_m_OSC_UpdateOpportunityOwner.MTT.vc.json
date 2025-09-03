@@ -1,0 +1,186 @@
+{
+  "name" : "s_m_OSC_UpdateOpportunityOwner",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_UpdateOpportunityOwner",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_OPTY_IDN$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_OPTY_IDN",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_OPTY_IDNSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_OPTY_IDNSrcParameter",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_OPTY_IDN"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_OPTY_IDN",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT \r\na.opportunitynumber OptyNumber, \r\nc.partyid OwnerResourcePartyId\r\nFROM\r\nosc.t_osc_opty_idn a, \r\nosc.t_osc_org b, \r\nosc.t_osc_resource c, \r\nosc.t_osc_resource d\r\nWHERE\r\na.opportunitytype = 'InVivo' and \r\nb.primaryinvivorepid = c.resourceprofileid and\r\na.owner != c.partyid and \r\na.accountid = b.partyid and \r\nb.primaryinvivorepid is not null and \r\na.owner = d.partyid and \r\nb.countrycode in ('DE','MY') and \r\na.accountcountry in ('DE','MY') and\r\n(c.status = 'Active' or c.status is null)\r\nUNION\r\nSELECT \r\na.opportunitynumber OptyNumber, \r\nc.partyid OwnerResourcePartyId\r\nFROM \r\nosc.t_osc_opty_idn a, \r\nosc.t_osc_org b, \r\nosc.t_osc_resource d, \r\nosc.t_osc_resource c\r\nWHERE \r\na.opportunitytype = 'InVivo' and \r\na.createdby = c.username and\r\na.accountid = b.partyid and \r\nb.primaryinvivorepid is null and \r\na.owner = d.partyid and \r\nd.username != c.username and \r\nc.username != 'osc.integrations' and \r\nb.countrycode in ('DE') and \r\na.accountcountry in ('DE') and\r\n(c.status = 'Active' or c.status is null)",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_OPTY_IDN",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_opty_ownerupdate$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_opty_ownerupdate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_opty_ownerupdateTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_opty_ownerupdateTgtParameter",
+        "default" : "DEOptyOwnerUpdate-Opportunities.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_opty_ownerupdate"
+      },
+      "targetConnectionId" : "@3mmYdjS0UHulG5fd91NWqT",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Opportunity",
+      "targetObject" : "DEOptyOwnerUpdate-Opportunities.csv",
+      "targetObjectLabel" : "DEOptyOwnerUpdate-Opportunities.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "DEOptyOwnerUpdate-Opportunities.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "DEOptyOwnerUpdate-Opportunities.csv",
+          "label" : "DEOptyOwnerUpdate-Opportunities.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "DEOptyOwnerUpdate-Opportunities.csv",
+            "label" : "DEOptyOwnerUpdate-Opportunities.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DEOptyOwnerUpdate-Opportunities.csv",
+      "objectLabel" : "DEOptyOwnerUpdate-Opportunities.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@0woygjzP7gsgrNYnlQbJWU",
+  "mappingTemplateName" : "m_OSC_UpdateOpportunityOwner",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:30 PDT"
+}

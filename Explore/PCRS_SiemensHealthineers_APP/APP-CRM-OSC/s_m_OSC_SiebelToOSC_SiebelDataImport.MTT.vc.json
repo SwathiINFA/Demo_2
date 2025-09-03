@@ -1,0 +1,367 @@
+{
+  "name" : "s_m_OSC_SiebelToOSC_SiebelDataImport",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_SiebelToOSC_SiebelDataImport",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_S_OPTY_SYST$",
+      "type" : "SOURCE",
+      "label" : "SQ_S_OPTY_SYST",
+      "uiProperties" : {
+        "cnxtype" : "ODBC",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_S_OPTY_SYST"
+      },
+      "sourceConnectionId" : "@jkubLgx4vKuidXXRGSETgQ",
+      "connectionName" : "SBL78PR",
+      "sourceObject" : "DUMMY_SQ_S_OPTY_SYST",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Sql Override" : "select\r\nopty_sys.row_id as oli_id, \r\nopty_sys.sum_effective_dt as close_date,\r\nopty_sys.integration_id as oli_src_system_id,\r\nopty_sys.opty_cd as opty_cd,\r\nopty_sys.status_cd as status, \r\nopty_sys.x_configured_system as serviced_system,\r\nopty_sys.x_funnel_value as funnel_value,\r\nopty_sys.x_quantity as quantity,\r\nopty_sys.x_quote_item_id as quote_item_id,\r\nopty_sys.x_quote_net_total as quote_total,\r\nopty_sys.x_sale_type as sale_type, \r\nopty_sys.x_service_class as service_class,\r\nopty_sys.x_svc_duration as contract_duration, \r\nopty_sys.x_svc_en_dt as service_contract_end_date, \r\nopty_sys.x_svc_st_dt as service_contract_start_date,\r\nopty_sys.x_finance_type finance_type,\r\nopty_sys.x_instrument_cash_val,\r\norg.row_id as eua_id,\r\norg.integration_id as eua_sap_id,\r\nqte.name as quote_name,\r\nqte.quote_num as quote_num,\r\nqte.quote_type as quote_type,\r\nqte.stat_cd as quote_status,\r\nqte.sales_rep_postn_id as quote_owner_postn_id,\r\nqte.x_contract_total,\r\nqte.rev_num as quote_rev_num,\r\nprod.part_num as product_part_num,\r\nprod.x_gz as gz,\r\nprod.x_gg as business_line,\r\nopty.row_id as opty_row_id,\r\nopty.integration_id as osc_opty_num,\r\nast.asset_num as asset_num,\r\nopty.status_cd as opty_status,\r\nopty_x.attrib_20 as rec_rev\r\nfrom \r\nsiebel.s_opty opty_sys \r\ninner join siebel.s_opty opty\r\non opty_sys.par_opty_id = opty.row_id\r\ninner join siebel.s_prod_int prod \r\non opty_sys.x_product_id = prod.row_id\r\ninner join siebel.s_user usr\r\non opty_sys.last_upd_by = usr.row_id\r\ninner join siebel.s_org_ext org \r\non opty_sys.x_eu_acct_id = org.row_id\r\nleft outer join siebel.s_doc_quote qte \r\non opty_sys.x_quote_id = qte.row_id and\r\nqte.active_flg = 'Y'\r\nleft outer join siebel.s_asset ast\r\non opty_sys.x_pr_functional_loc_id = ast.row_id\r\nleft outer join siebel.s_opty_x opty_x\r\non opty_sys.row_id = opty_x.par_row_id\r\nwhere \r\nopty.opty_cd = 'Service' and\r\nopty.integration_id is not null and\r\n((usr.login != 'SADMIN' AND usr.login != 'CSGADM') OR (usr.login = 'SADMIN' AND opty_sys.status_cd in ('Won','Booked','Lost','Signed')) OR (usr.login = 'SADMIN' and opty_sys.created > TIMESTAMP ('$$PROCESS_DATE') + 5 HOUR)) and\r\nopty_sys.status_cd in ('Won','Booked','Abandoned','Active','Lost','Signed') and\r\nopty_sys.par_opty_id is not null and \r\nopty_sys.last_upd > TIMESTAMP ('$$PROCESS_DATE') + 5 HOUR"
+      },
+      "customQuery" : "select\r\nopty_sys.row_id as oli_id, \r\nopty_sys.sum_effective_dt as close_date,\r\nopty_sys.integration_id as oli_src_system_id,\r\nopty_sys.opty_cd as opty_cd,\r\nopty_sys.status_cd as status, \r\nopty_sys.x_configured_system as serviced_system,\r\nopty_sys.x_funnel_value as funnel_value,\r\nopty_sys.x_quantity as quantity,\r\nopty_sys.x_quote_item_id as quote_item_id,\r\nopty_sys.x_quote_net_total as quote_total,\r\nopty_sys.x_sale_type as sale_type, \r\nopty_sys.x_service_class as service_class,\r\nopty_sys.x_svc_duration as contract_duration, \r\nopty_sys.x_svc_en_dt as service_contract_end_date, \r\nopty_sys.x_svc_st_dt as service_contract_start_date,\r\nopty_sys.x_finance_type finance_type,\r\nopty_sys.x_instrument_cash_val,\r\norg.row_id as eua_id,\r\norg.integration_id as eua_sap_id,\r\nqte.name as quote_name,\r\nqte.quote_num as quote_num,\r\nqte.quote_type as quote_type,\r\nqte.stat_cd as quote_status,\r\nqte.sales_rep_postn_id as quote_owner_postn_id,\r\nqte.x_contract_total,\r\nqte.rev_num as quote_rev_num,\r\nprod.part_num as product_part_num,\r\nprod.x_gz as gz,\r\nprod.x_gg as business_line,\r\nopty.row_id as opty_row_id,\r\nopty.integration_id as osc_opty_num,\r\nast.asset_num as asset_num,\r\nopty.status_cd as opty_status,\r\nopty_x.attrib_20 as rec_rev\r\nfrom \r\nsiebel.s_opty opty_sys \r\ninner join siebel.s_opty opty\r\non opty_sys.par_opty_id = opty.row_id\r\ninner join siebel.s_prod_int prod \r\non opty_sys.x_product_id = prod.row_id\r\ninner join siebel.s_user usr\r\non opty_sys.last_upd_by = usr.row_id\r\ninner join siebel.s_org_ext org \r\non opty_sys.x_eu_acct_id = org.row_id\r\nleft outer join siebel.s_doc_quote qte \r\non opty_sys.x_quote_id = qte.row_id and\r\nqte.active_flg = 'Y'\r\nleft outer join siebel.s_asset ast\r\non opty_sys.x_pr_functional_loc_id = ast.row_id\r\nleft outer join siebel.s_opty_x opty_x\r\non opty_sys.row_id = opty_x.par_row_id\r\nwhere \r\nopty.opty_cd != 'Equipment' and\r\nopty.integration_id is not null and\r\n((usr.login != 'SADMIN' AND usr.login != 'CSGADM') OR (usr.login = 'SADMIN' AND opty_sys.status_cd in ('Won','Booked','Lost','Signed')) OR (usr.login = 'SADMIN' and opty_sys.created > TIMESTAMP ('$$PROCESS_DATE') + 4 HOUR)) and\r\nopty_sys.status_cd in ('Won','Booked','Abandoned','Active','Lost','Signed') and\r\nopty_sys.par_opty_id is not null and \r\nopty_sys.last_upd > TIMESTAMP ('$$PROCESS_DATE') + 5 HOUR",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_S_OPTY_SYST",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_SBL_OPTY$",
+      "type" : "TARGET",
+      "label" : "T_OSC_SBL_OPTY",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_SBL_OPTY",
+        "objectParameterized" : "true",
+        "objectParamName" : "param_T_OSC_SBL_OPTY",
+        "objectParamType-mapping" : "DataObject",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "OPTY_ROW_ID",
+        "noCreateTarget" : "true",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_SBL_OPTY"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_SBL_OPTY",
+      "targetObjectLabel" : "T_OSC_SBL_OPTY",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : false,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Upsert",
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "OPTY_ROW_ID"
+      ],
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_SBL_OPTY",
+          "label" : "T_OSC_SBL_OPTY",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "T_OSC_SBL_OPTY",
+            "label" : "T_OSC_SBL_OPTY",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "UPSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_SBL_OPTY",
+      "objectLabel" : "T_OSC_SBL_OPTY",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "T_OSC_SBL_OPTY",
+        "objectParameterName" : "param_T_OSC_SBL_OPTY",
+        "objectDefaultValue" : "T_OSC_SBL_OPTY",
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : true
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_SBL_OPTY_SYSTEM$",
+      "type" : "TARGET",
+      "label" : "T_OSC_SBL_OPTY_SYSTEM",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_SBL_OPTY_SYSTEM",
+        "objectParameterized" : "true",
+        "objectParamName" : "param_T_OSC_SBL_OPTY_SYSTEM",
+        "objectParamType-mapping" : "DataObject",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "ROW_ID",
+        "noCreateTarget" : "true",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_SBL_OPTY_SYSTEM"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_SBL_OPTY_SYSTEM",
+      "targetObjectLabel" : "T_OSC_SBL_OPTY_SYSTEM",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : false,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Upsert",
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "ROW_ID"
+      ],
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_SBL_OPTY_SYSTEM",
+          "label" : "T_OSC_SBL_OPTY_SYSTEM",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "T_OSC_SBL_OPTY_SYSTEM",
+            "label" : "T_OSC_SBL_OPTY_SYSTEM",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "UPSERT" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_SBL_OPTY_SYSTEM",
+      "objectLabel" : "T_OSC_SBL_OPTY_SYSTEM",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionParameterName" : "T_OSC_SBL_OPTY_SYSTEM",
+        "objectParameterName" : "param_T_OSC_SBL_OPTY_SYSTEM",
+        "objectDefaultValue" : "T_OSC_SBL_OPTY_SYSTEM",
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : true
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_T_OSC_TEMP_DX_CONV$",
+      "type" : "LOOKUP",
+      "label" : "LKP_T_OSC_TEMP_DX_CONV",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "default" : "T_OSC_TEMP_DX_CONV",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "LKP_T_OSC_TEMP_DX_CONV"
+      },
+      "lookupConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "lookupObject" : "T_OSC_TEMP_DX_CONV",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "false",
+        "Case Sensitive String Comparison" : "false",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Subsecond Precision" : "6",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_DX_CONV",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@aiHXu5hm1NWfEO8v1mlsGe",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_SiebelToOSC_SiebelDataImport",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    },
+    {
+      "name" : "Stop on errors",
+      "value" : "1"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESS_DATE",
+      "initialValue" : "2022-01-13 17:24:05",
+      "datatype" : "STRING",
+      "precision" : "21",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "2022-01-13 17:24:05"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:19 PDT"
+}

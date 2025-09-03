@@ -1,0 +1,224 @@
+{
+  "name" : "s_m_OSC_TM_TerritoryToAccountUpdateLegacyPositionOpty",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_TM_TerritoryToAccountUpdateLegacyPositionOpty",
+  "runtimeEnvironmentId" : "@4egFi0KUPZQeOh3ExBpF65",
+  "runtimeEnvironmentName" : "Akshata - INW66SLF64-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_RESOURCE$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_T_OSC_RESOURCE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_RESOURCESrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_RESOURCESrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "true",
+        "isMsrcSortParameterized" : "false",
+        "msrcFilterDefault" : "T_OSC_OPTY_RESOURCE.LEGACYPOSITIONNAME != T_OSC_RESOURCE.LEGACYPOSITIONNAME\r\nAND\r\nT_OSC_RESOURCE.LASTUPDATEDATE > TO_DATE($$PROCESSED_DATE, 'YYYY/MM/DD HH24:MI:SS')",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_RESOURCE"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_RESOURCE",
+          "label" : "T_OSC_RESOURCE",
+          "metadataUpdated" : false
+        },
+        "userDefinedJoin" : "T_OSC_OPTY_RESOURCE.RESOURCEID = T_OSC_RESOURCE.PARTYID",
+        "advancedFilterExpression" : "T_OSC_OPTY_RESOURCE.LEGACYPOSITIONNAME != T_OSC_RESOURCE.LEGACYPOSITIONNAME\r\nAND\r\nT_OSC_RESOURCE.LASTUPDATEDATE > TO_DATE($$PROCESSED_DATE, 'YYYY/MM/DD HH24:MI:SS')",
+        "singleMode" : false,
+        "objects" : [
+          {
+            "name" : "T_OSC_RESOURCE",
+            "label" : "T_OSC_RESOURCE",
+            "metadataUpdated" : false
+          },
+          {
+            "name" : "T_OSC_OPTY_RESOURCE",
+            "label" : "T_OSC_OPTY_RESOURCE",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_tm_optyteam$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_tm_optyteam",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_tm_optyteamTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_tm_optyteamTgtParameter",
+        "default" : "TMAddToSalesTeam-Opportunities.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_tm_optyteam"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMAddToSalesTeam-Opportunities.csv",
+      "targetObjectLabel" : "TMAddToSalesTeam-Opportunities.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMAddToSalesTeam-Opportunities.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMAddToSalesTeam-Opportunities.csv",
+          "label" : "TMAddToSalesTeam-Opportunities.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMAddToSalesTeam-Opportunities.csv",
+            "label" : "TMAddToSalesTeam-Opportunities.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMAddToSalesTeam-Opportunities.csv",
+      "objectLabel" : "TMAddToSalesTeam-Opportunities.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@9zWXJigkp9xdI3jwT0Bb6I",
+  "mappingTemplateName" : "m_OSC_TM_TerritoryToAccountUpdateLegacyPositionOpty",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    },
+    {
+      "name" : "Session Log File Name",
+      "value" : "s_m_OSC_TM_TerritoryToAccountUpdateLegacyPositionOpty_$$runId$$.log"
+    },
+    {
+      "name" : "Treat source rows as",
+      "value" : "Insert"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESSED_DATE",
+      "initialValue" : "'2022-02-28 12:00:00'",
+      "datatype" : "STRING",
+      "precision" : "29",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "'2022-02-28 12:00:00'"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:28 PDT"
+}

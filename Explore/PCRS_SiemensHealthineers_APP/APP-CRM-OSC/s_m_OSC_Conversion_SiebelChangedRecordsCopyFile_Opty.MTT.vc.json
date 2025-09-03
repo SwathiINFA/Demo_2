@@ -1,0 +1,200 @@
+{
+  "name" : "s_m_OSC_Conversion_SiebelChangedRecordsCopyFile_Opty",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Conversion_SiebelChangedRecordsCopyFile_Opty",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_ff_lkp_siebel_row_id$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_ff_lkp_siebel_row_id",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_ff_lkp_siebel_row_idSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_ff_lkp_siebel_row_idSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_ff_lkp_siebel_row_id"
+      },
+      "sourceConnectionId" : "@66yyk2WBI9CbW98NMD1qWD",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Conversion",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 2147483647,
+        "firstDataRow" : 1,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ff_conv_siebel_account_changedrecords.txt",
+          "label" : "ff_conv_siebel_account_changedrecords.txt",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ff_conv_siebel_account_changedrecords.txt",
+            "label" : "ff_conv_siebel_account_changedrecords.txt",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "Source filename" : "ff_conv_siebel_opty_changedrecords.txt"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_siebel_row_id$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_siebel_row_id",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_siebel_row_idTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_siebel_row_idTgtParameter",
+        "default" : "ff_conv_siebel_account_lookup.txt",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "defaultTargetUpdateColumns" : "ROW_ID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_siebel_row_id"
+      },
+      "targetConnectionId" : "@66yyk2WBI9CbW98NMD1qWD",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Conversion",
+      "targetObject" : "ff_conv_siebel_account_lookup.txt",
+      "targetObjectLabel" : "ff_conv_siebel_account_lookup.txt",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "ff_conv_siebel_account_lookup.txt",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ff_conv_siebel_opty_lookup.txt",
+          "label" : "ff_conv_siebel_opty_lookup.txt",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ff_conv_siebel_opty_lookup.txt",
+            "label" : "ff_conv_siebel_opty_lookup.txt",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ff_conv_siebel_account_lookup.txt",
+      "objectLabel" : "ff_conv_siebel_account_lookup.txt",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@6G4dr8RYsGFcwJ4PPAtisl",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_Conversion_SiebelChangedRecordsCopyFile",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:23 PDT"
+}

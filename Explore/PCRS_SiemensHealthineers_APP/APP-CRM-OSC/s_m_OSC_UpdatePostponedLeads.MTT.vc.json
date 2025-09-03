@@ -1,0 +1,202 @@
+{
+  "name" : "s_m_OSC_UpdatePostponedLeads",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_UpdatePostponedLeads",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_LEAD$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_T_OSC_LEAD",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_LEADSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_LEADSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "true",
+        "isMsrcSortParameterized" : "false",
+        "msrcFilterDefault" : "T_OSC_LEAD.ACCOUNTCOUNTRY_C = 'US' AND\r\nT_OSC_LEAD.POSTPONEUNTILDATE <= SYSDATE AND T_OSC_LEAD.POSTPONEUNTILDATE IS NOT NULL AND\r\nT_OSC_LEAD.STATUS_C = 'Postponed'",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_LEAD"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_LEAD",
+          "label" : "T_OSC_LEAD",
+          "metadataUpdated" : false
+        },
+        "advancedFilterExpression" : "T_OSC_LEAD.ACCOUNTCOUNTRY_C = 'US' AND\r\nT_OSC_LEAD.POSTPONEUNTILDATE <= SYSDATE AND T_OSC_LEAD.POSTPONEUNTILDATE IS NOT NULL AND\r\nT_OSC_LEAD.STATUS_C = 'Postponed'",
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "T_OSC_LEAD",
+            "label" : "T_OSC_LEAD",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_postponed_lead$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_postponed_lead",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_postponed_leadTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_postponed_leadTgtParameter",
+        "default" : "PostponedLeadsUpdate-Leads.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_postponed_lead"
+      },
+      "targetConnectionId" : "@9SMcu7aTPhPkDJeCqz0JUz",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Lead",
+      "targetObject" : "PostponedLeadsUpdate-Leads.csv",
+      "targetObjectLabel" : "PostponedLeadsUpdate-Leads.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "PostponedLeadsUpdate-Leads.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "PostponedLeadsUpdate-Leads.csv",
+          "label" : "PostponedLeadsUpdate-Leads.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "PostponedLeadsUpdate-Leads.csv",
+            "label" : "PostponedLeadsUpdate-Leads.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "PostponedLeadsUpdate-Leads.csv",
+      "objectLabel" : "PostponedLeadsUpdate-Leads.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@7KiDHAe1zU7lBnGqy8IfIR",
+  "mappingTemplateName" : "m_OSC_UpdatePostponedLeads",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:29 PDT"
+}

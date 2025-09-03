@@ -1,0 +1,811 @@
+{
+  "name" : "s_m_OSC_TM_TerritoryToAccountRemovePrimaryReps",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_TM_TerritoryToAccountRemovePrimaryReps",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_ACCNT_RESOURCE$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_ACCNT_RESOURCE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_ACCNT_RESOURCE"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_ACCNT_RESOURCE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Sql Override" : "SELECT partyid, oscregistryid, countrycode, resourceid, reptype FROM (\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVitro_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'BusinessPartnerInVitro_c' and b.active = 'Y'and a.businesspartnerinvitroid is not null and a.businesspartnerinvitroid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVitro_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'BusinessPartnerInVitro_c' and d.active = 'Y' and b.businesspartnerinvitroid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVivo_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'BusinessPartnerInVivo_c' and b.active = 'Y' and a.businesspartnerinvivoid is not null and a.businesspartnerinvivoid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVivo_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'BusinessPartnerInVivo_c' and d.active = 'Y' and b.businesspartnerinvivoid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVitroRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryInVitroRep_c' and b.active = 'Y' and a.primaryinvitrorepid is not null and a.primaryinvitrorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVitroRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryInVitroRep_c' and d.active = 'Y' and b.primaryinvitrorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVivoRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryInVivoRep_c' and b.active = 'Y' and a.primaryinvivorepid is not null and a.primaryinvivorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVivoRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryInVivoRep_c' and d.active = 'Y' and b.primaryinvivorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVitroRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'SecondaryInVitroRep_c' and b.active = 'Y' and a.secondaryinvitrorepid is not null and a.secondaryinvitrorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVitroRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'SecondaryInVitroRep_c' and d.active = 'Y' and b.secondaryinvitrorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVivoRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'SecondaryInVivoRep_c' and b.active = 'Y' and a.secondaryinvivorepid is not null and a.secondaryinvivorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVivoRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'SecondaryInVivoRep_c' and d.active = 'Y' and b.secondaryinvivorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryUSRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryUSRep_c' and b.active = 'Y' and a.primaryusrepid is not null and a.primaryusrepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryUSRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryUSRep_c' and d.active = 'Y' and b.primaryusrepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryPOCRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryPOCRep_c' and b.active = 'Y' and a.primarypocrepid is not null and a.primarypocrepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryPOCRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryPOCRep_c' and d.active = 'Y' and b.primarypocrepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimarySSE_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimarySSE_c' and b.active = 'Y' and a.primarysse is not null and a.primarysse = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimarySSE_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimarySSE_c' and d.active = 'Y' and b.primarysse is not null\r\n) where countrycode = 'dummy'",
+        "Pre SQL" : "TRUNCATE TABLE OSC.t_osc_temp_org_res;"
+      },
+      "customQuery" : "SELECT partyid, oscregistryid, countrycode, resourceid, reptype FROM (\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVitro_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'BusinessPartnerInVitro_c' and b.active = 'Y'and a.businesspartnerinvitroid is not null and a.businesspartnerinvitroid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVitro_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'BusinessPartnerInVitro_c' and d.active = 'Y' and b.businesspartnerinvitroid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVivo_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'BusinessPartnerInVivo_c' and b.active = 'Y' and a.businesspartnerinvivoid is not null and a.businesspartnerinvivoid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'BusinessPartnerInVivo_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'BusinessPartnerInVivo_c' and d.active = 'Y' and b.businesspartnerinvivoid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVitroRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryInVitroRep_c' and b.active = 'Y' and a.primaryinvitrorepid is not null and a.primaryinvitrorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVitroRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryInVitroRep_c' and d.active = 'Y' and b.primaryinvitrorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVivoRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryInVivoRep_c' and b.active = 'Y' and a.primaryinvivorepid is not null and a.primaryinvivorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryInVivoRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryInVivoRep_c' and d.active = 'Y' and b.primaryinvivorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVitroRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'SecondaryInVitroRep_c' and b.active = 'Y' and a.secondaryinvitrorepid is not null and a.secondaryinvitrorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVitroRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'SecondaryInVitroRep_c' and d.active = 'Y' and b.secondaryinvitrorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVivoRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'SecondaryInVivoRep_c' and b.active = 'Y' and a.secondaryinvivorepid is not null and a.secondaryinvivorepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'SecondaryInVivoRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'SecondaryInVivoRep_c' and d.active = 'Y' and b.secondaryinvivorepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryUSRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryUSRep_c' and b.active = 'Y' and a.primaryusrepid is not null and a.primaryusrepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryUSRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryUSRep_c' and d.active = 'Y' and b.primaryusrepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimaryPOCRep_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimaryPOCRep_c' and b.active = 'Y' and a.primarypocrepid is not null and a.primarypocrepid = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimaryPOCRep_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimaryPOCRep_c' and d.active = 'Y' and b.primarypocrepid is not null\r\nUNION ALL\r\nSELECT DISTINCT a.partyid as partyid, a.oscregistryid as oscregistryid, a.countrycode as countrycode, c.partyid as resourceid, 'PrimarySSE_c' as reptype\r\nfrom osc.t_osc_org a, osc.t_osc_rep_asgn_rule b, osc.t_osc_resource c\r\nwhere a.countrycode = b.countrycode and b.listofreps = 'PrimarySSE_c' and b.active = 'Y' and a.primarysse is not null and a.primarysse = c.resourceprofileid\r\nMINUS\r\nSELECT DISTINCT b.partyid as partyid, b.oscregistryid as oscregistryid, b.countrycode as countrycode, c.partyid as resourceid, 'PrimarySSE_c' as reptype\r\nFROM osc.t_osc_accnt_resource a, osc.t_osc_org b, osc.t_osc_resource c, osc.t_osc_rep_asgn_rule d\r\nWHERE a.sales_account_id = b.salesaccountid and a.resource_id = c.partyid and b.countrycode = d.countrycode and d.listofreps = 'PrimarySSE_c' and d.active = 'Y' and b.primarysse is not null\r\n)",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_ACCNT_RESOURCE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_BusinessPartnerInvitroRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_BusinessPartnerInvitroRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_BusinessPartnerInvitroRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_BusinessPartnerInvivoRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_BusinessPartnerInvivoRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_BusinessPartnerInvivoRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_PrimaryInvitroRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_PrimaryInvitroRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_PrimaryInvitroRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_PrimaryInvivoRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_PrimaryInvivoRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_PrimaryInvivoRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_PrimaryPOCRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_PrimaryPOCRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_PrimaryPOCRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_PrimarySSE$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_PrimarySSE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_PrimarySSE"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_PrimaryUSRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_PrimaryUSRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_PrimaryUSRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_SecondaryInvitroRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_SecondaryInvitroRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_SecondaryInvitroRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_ORG_RES_SecondaryInvivoRepId$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_ORG_RES_SecondaryInvivoRepId",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Target",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Target",
+        "default" : "T_OSC_TEMP_ORG_RES",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "PARTYID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_ORG_RES_SecondaryInvivoRepId"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_ORG_RES",
+      "targetObjectLabel" : "T_OSC_TEMP_ORG_RES",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "PARTYID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_ORG_RES",
+      "objectLabel" : "T_OSC_TEMP_ORG_RES",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$LKP_T_OSC_RESOURCE$",
+      "type" : "LOOKUP",
+      "label" : "LKP_T_OSC_RESOURCE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isCachedLookup" : "true",
+        "multipleMatchPolicy" : "Use Any Value",
+        "default" : "T_OSC_RESOURCE",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "LKP_T_OSC_RESOURCE"
+      },
+      "lookupConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "lookupObject" : "T_OSC_RESOURCE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "lkpFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Lookup source is static" : "false",
+        "Case Sensitive String Comparison" : "false",
+        "Lookup Data Cache Size" : "AUTO",
+        "Output Old Value On Update" : "false",
+        "Pre-build lookup cache" : "AUTO",
+        "Synchronize dynamic cache" : "false",
+        "Null ordering" : "Null Is Highest Value",
+        "Thousand Separator" : "None",
+        "Lookup Index Cache Size" : "AUTO",
+        "Optional" : "true",
+        "Lookup cache persistent" : "false",
+        "Update Dynamic Cache Condition" : "TRUE",
+        "Decimal Separator" : ".",
+        "Re-cache from lookup source" : "false",
+        "Insert Else Update" : "false",
+        "Lookup caching enabled" : "true",
+        "Tracing Level" : "Normal",
+        "Subsecond Precision" : "6",
+        "Sorted Input" : "false",
+        "Lookup cache directory name" : "$PMCacheDir",
+        "Dynamic Lookup Cache" : "false"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_RESOURCE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@88LNsUMzwGPew6yis8bkGW",
+  "mappingTemplateName" : "m_OSC_TM_TerritoryToAccountRemovePrimaryReps",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:28 PDT"
+}

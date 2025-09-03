@@ -1,0 +1,203 @@
+{
+  "name" : "s_m_OSC_Delete_AssignmentRuleCandidate_RuleCount",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Delete_AssignmentRuleCandidate_RuleCount",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_ff_src_assignmentrulecandidate$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_ff_src_assignmentrulecandidate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_ff_src_assignmentrulecandidateSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_ff_src_assignmentrulecandidateSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "originalPath" : "SQ_ff_src_assignmentrulecandidate"
+      },
+      "sourceConnectionId" : "@9NHRvcnQk2Sj420HwrLN8M",
+      "connectionName" : "D__crm_Target_CRM_OSC_Assignment",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 10,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "AssignmentRuleCandidate-Export.csv",
+          "label" : "AssignmentRuleCandidate-Export.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "AssignmentRuleCandidate-Export.csv",
+            "label" : "AssignmentRuleCandidate-Export.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "runtimeAttrs" : {
+        "Source filename" : "AssignmentRuleCandidate-Export.csv"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_lkp_osc_assignmentrulecandidate$",
+      "type" : "TARGET",
+      "label" : "ff_lkp_osc_assignmentrulecandidate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_lkp_osc_assignmentrulecandidateTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_lkp_osc_assignmentrulecandidateTgtParameter",
+        "default" : "AssignmentRuleCandidate-RuleCount.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_lkp_osc_assignmentrulecandidate"
+      },
+      "targetConnectionId" : "@9NHRvcnQk2Sj420HwrLN8M",
+      "connectionName" : "D__crm_Target_CRM_OSC_Assignment",
+      "targetObject" : "AssignmentRuleCandidate-RuleCount.csv",
+      "targetObjectLabel" : "AssignmentRuleCandidate-RuleCount.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "AssignmentRuleCandidate-RuleCount.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "AssignmentRuleCandidate-RuleCount.csv",
+          "label" : "AssignmentRuleCandidate-RuleCount.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "AssignmentRuleCandidate-RuleCount.csv",
+            "label" : "AssignmentRuleCandidate-RuleCount.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "AssignmentRuleCandidate-RuleCount.csv",
+      "objectLabel" : "AssignmentRuleCandidate-RuleCount.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@0i3IejVxmcBh1Fntf7dDoX",
+  "mappingTemplateName" : "m_OSC_Delete_AssignmentRuleCandidate_RuleCount",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:21 PDT"
+}

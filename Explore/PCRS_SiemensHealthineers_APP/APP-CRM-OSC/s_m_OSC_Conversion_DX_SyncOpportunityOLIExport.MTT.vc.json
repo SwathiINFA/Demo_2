@@ -1,0 +1,254 @@
+{
+  "name" : "s_m_OSC_Conversion_DX_SyncOpportunityOLIExport",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_Conversion_DX_SyncOpportunityOLIExport",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_TEMP_DX_OLI_CONV$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_TEMP_DX_OLI_CONV",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_TEMP_DX_OLI_CONVSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_TEMP_DX_OLI_CONVSrcParameter",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_TEMP_DX_OLI_CONV"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_TEMP_DX_OLI_CONV",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT \r\nb.OpportunityId,\r\nb.FinanceType,\r\nb.CapitalFunnelValue, \r\nb.RecurringRevenueFunnelValue, \r\nb.ContractDurationMonths, \r\nb.PriorYearRevenueRunRate, \r\nb.SiemensProbability,\r\nb.IncumbentVendor,\r\nb.IncumbentVendorDCL_Id,\r\nb.DecisionDate, \r\nb.ExpectedInstallationDate, \r\nb.ExpectedShipmentDate, \r\nb.ExpectedTurnoverDate, \r\nb.Reason, \r\nb.WinningVendor,\r\nb.WinningVendorProduct_Id,\r\nb.IncludeInForecast, \r\nb.AssayDCL_Id,\r\nb.SalesProgramId, \r\nb.IncumbentVendorProduct1_Id,\r\nb.IncumbentVendorProductBI,\r\nb.WinningVendorProductBI,\r\nb.SalesProgramForBI,\r\nb.OLIView_Reason,\r\nb.OLIView_ExpectedDeliveryDate,\r\nb.OLIView_IncumbentVendorId,\r\nb.OLIView_SalesProgram,\r\nb.Assay,\r\nb.ReasonComments,\r\nb.FunnelValue,\r\na.OpportunityLineId, \r\nc.OptyLineNumber \r\nFROM\r\nosc.T_OSC_TEMP_DX_MATCH_CONV a,\r\nosc.T_OSC_TEMP_DX_OLI_CONV b, osc.T_OSC_TEMP_DX_OLI_CONV c,\r\nosc.T_OSC_TEMP_DX_CONV d\r\nWHERE\r\nb.OpportunityLineId = a.OpptyLineMatchId AND\r\nc.OpportunityLineId = a.OpportunityLineId AND\r\nb.OpportunityId = d.Osc_Opty_Id AND\r\nc.OpportunityId = d.Osc_Opty_Id AND\r\nd.Status = 'Active'",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_TEMP_DX_OLI_CONV",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$T_OSC_TEMP_DX_CONV1$",
+      "type" : "TARGET",
+      "label" : "T_OSC_TEMP_DX_CONV1",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "T_OSC_TEMP_DX_CONV1TgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "T_OSC_TEMP_DX_CONV1TgtParameter",
+        "default" : "T_OSC_TEMP_DX_CONV",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "defaultTargetUpdateColumns" : "OSC_OPTY_ID",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "T_OSC_TEMP_DX_CONV1"
+      },
+      "targetConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "targetObject" : "T_OSC_TEMP_DX_CONV",
+      "targetObjectLabel" : "T_OSC_TEMP_DX_CONV",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Rowbased",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "targetUpdateColumns" : [
+        "OSC_OPTY_ID"
+      ],
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "runtimeAttrs" : {
+        "Forward Rejected Rows" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "T_OSC_TEMP_DX_CONV",
+      "objectLabel" : "T_OSC_TEMP_DX_CONV",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_dx_oli$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_dx_oli",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_dx_oliTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_dx_oliTgtParameter",
+        "default" : "DXConversionOLISync.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_dx_oli"
+      },
+      "targetConnectionId" : "@66yyk2WBI9CbW98NMD1qWD",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Conversion",
+      "targetObject" : "DXConversionOLISync.csv",
+      "targetObjectLabel" : "DXConversionOLISync.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "DXConversionOLISync.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "DXConversionOLISync.csv",
+          "label" : "DXConversionOLISync.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "DXConversionOLISync.csv",
+            "label" : "DXConversionOLISync.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DXConversionOLISync.csv",
+      "objectLabel" : "DXConversionOLISync.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@dlo9tqbTmKQfmz7rYQYVKj",
+  "mappingTemplateName" : "ARCHIVE_m_OSC_Conversion_DX_SyncOpportunityOLIExport",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:21 PDT"
+}

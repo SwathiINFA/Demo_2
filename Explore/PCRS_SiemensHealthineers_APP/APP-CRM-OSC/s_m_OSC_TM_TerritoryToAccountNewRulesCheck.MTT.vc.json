@@ -1,0 +1,201 @@
+{
+  "name" : "s_m_OSC_TM_TerritoryToAccountNewRulesCheck",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_TM_TerritoryToAccountNewRulesCheck",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_REP_ASGN_RULE$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_REP_ASGN_RULE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_REP_ASGN_RULESrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_REP_ASGN_RULESrcParameter",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_REP_ASGN_RULE"
+      },
+      "sourceConnectionId" : "@0Jc0mSYEs3QgEw3dghX2aW",
+      "connectionName" : "OSC_DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_REP_ASGN_RULE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "runtimeAttrs" : {
+        "Sql Override" : "SELECT \r\nRECORDNUMBER, \r\nLASTUPDATEDATE \r\nFROM\r\nOSC.T_OSC_REP_ASGN_RULE\r\nWHERE \r\n--LASTUPDATEDATE > TO_DATE('$$PROCESS_DATE','YYYY-MM-DD HH24:MI:SS') - 3 AND\r\ncountrycode = 'GB' AND\r\n(ACTIVE IS NULL OR ACTIVE = 'Y')"
+      },
+      "customQuery" : "SELECT \r\nRECORDNUMBER, \r\nLASTUPDATEDATE \r\nFROM\r\nOSC.T_OSC_REP_ASGN_RULE\r\nWHERE \r\nLASTUPDATEDATE > TO_DATE('$$PROCESS_DATE','YYYY-MM-DD HH24:MI:SS') - 1 AND\r\n(ACTIVE IS NULL OR ACTIVE = 'Y')",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_REP_ASGN_RULE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_file$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_file",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_fileTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_fileTgtParameter",
+        "default" : "TMNewRulesUpdated.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_file"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMNewRulesUpdated.csv",
+      "targetObjectLabel" : "TMNewRulesUpdated.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMNewRulesUpdated.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMNewRulesUpdated.csv",
+          "label" : "TMNewRulesUpdated.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMNewRulesUpdated.csv",
+            "label" : "TMNewRulesUpdated.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMNewRulesUpdated.csv",
+      "objectLabel" : "TMNewRulesUpdated.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@3UyNq3ua8oJjB3cwErVsMM",
+  "mappingTemplateName" : "m_OSC_TM_TerritoryToAccountNewRulesCheck",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESS_DATE",
+      "initialValue" : "2021-08-18 12:00:00",
+      "datatype" : "STRING",
+      "precision" : "19",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "2021-08-18 12:00:00"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:25 PDT"
+}

@@ -1,0 +1,202 @@
+{
+  "name" : "s_m_OSC_UpdateProjectFunnelValue",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_UpdateProjectFunnelValue",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_PROJ_OPTY$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "SQ_T_OSC_PROJ_OPTY",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "SQ_T_OSC_PROJ_OPTYSrcParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "SQ_T_OSC_PROJ_OPTYSrcParameter",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "true",
+        "isMsrcSortParameterized" : "false",
+        "msrcFilterDefault" : "PROJECTACCOUNTCOUNTRY IN ('US','CA') AND\r\nOPPORTUNITYTYPE IN ('InVivo','Services') AND\r\n(ALTERNATEFLAG IS NULL OR ALTERNATEFLAG = 'N') AND OPTYSTATUS IN ('WON', 'OPEN', 'Signed')",
+        "isFFRetainMetaData" : "true",
+        "objectParameterized" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_PROJ_OPTY"
+      },
+      "sourceConnectionId" : "@0Jc0mSYEs3QgEw3dghX2aW",
+      "connectionName" : "OSC_DWPRD_UTF8",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "T_OSC_PROJ_OPTY",
+          "label" : "T_OSC_PROJ_OPTY",
+          "metadataUpdated" : false
+        },
+        "advancedFilterExpression" : "PROJECTACCOUNTCOUNTRY IN ('US','CA') AND\r\nOPPORTUNITYTYPE IN ('InVivo','Services') AND\r\n(ALTERNATEFLAG IS NULL OR ALTERNATEFLAG = 'N') AND OPTYSTATUS IN ('WON', 'OPEN', 'Signed')",
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "T_OSC_PROJ_OPTY",
+            "label" : "T_OSC_PROJ_OPTY",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_project_funnelupdate$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_project_funnelupdate",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_project_funnelupdateTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_project_funnelupdateTgtParameter",
+        "default" : "ProjectFunnelUpdate-Projects.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_project_funnelupdate"
+      },
+      "targetConnectionId" : "@1vT8jkCdgBUfCheVI6oBQz",
+      "connectionName" : "D__CRM_Target_CRM_OSC_Project",
+      "targetObject" : "ProjectFunnelUpdate-Projects.csv",
+      "targetObjectLabel" : "ProjectFunnelUpdate-Projects.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "ProjectFunnelUpdate-Projects.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "ProjectFunnelUpdate-Projects.csv",
+          "label" : "ProjectFunnelUpdate-Projects.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "ProjectFunnelUpdate-Projects.csv",
+            "label" : "ProjectFunnelUpdate-Projects.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "ProjectFunnelUpdate-Projects.csv",
+      "objectLabel" : "ProjectFunnelUpdate-Projects.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@3h2ffSy1rjIdIiZeNY2X4w",
+  "mappingTemplateName" : "m_OSC_UpdateProjectFunnelValue",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:21 PDT"
+}

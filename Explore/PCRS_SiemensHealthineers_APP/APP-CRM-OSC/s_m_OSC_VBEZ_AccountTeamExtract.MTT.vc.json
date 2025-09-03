@@ -1,0 +1,200 @@
+{
+  "name" : "s_m_OSC_VBEZ_AccountTeamExtract",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_VBEZ_AccountTeamExtract",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_ORG$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_ORG",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_ORG"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_ORG",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVitro' as businessarea, 'Primary In Vitro (DX) Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.primaryinvitrorepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVitro' as businessarea, 'Secondary In Vitro Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.secondaryinvitrorepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVivo' as businessarea, 'Primary In Vivo(IM) Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.primaryinvivorepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVivo' as businessarea, 'Secondary In Vivo Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.secondaryinvivorepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVivo' as businessarea, 'Primary US Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.primaryusrepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVitro' as businessarea, 'Primary POC Rep' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.primarypocrepid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVitro' as businessarea, 'Business Partner In Vitro' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.businesspartnerinvitroid = res.resourceprofileid  AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVivo' as businessarea, 'Business Partner In Vivo' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.businesspartnerinvivoid = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')\r\nUNION ALL\r\nSELECT org.sapidinvivo as accountid, org.countrycode as countrycode, res.username as gid, res.positiontype as positiontype, 'InVivo' as businessarea, 'Primary SSE' as description, org.sapaccountgroup as sapaccountgroup, org.lastupdateddate_c as lastupdateddate_c\r\nFROM osc.t_osc_org org, osc.t_osc_resource res\r\nWHERE org.primarysse = res.resourceprofileid AND org.lastupdateddate_c >= to_date('$$PROCESS_DATE','MM/DD/YYYY HH24:MI:SS') - 1 AND blockingstatus in ('Verified and Active','Blocked')",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_ORG",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_vbez_accountteam_primaryinvivorep$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_vbez_accountteam_primaryinvivorep",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_vbez_accountteam_primaryinvivorepTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_vbez_accountteam_primaryinvivorepTgtParameter",
+        "default" : "Employee_ID_Mgmt_OTC105_.txt",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_vbez_accountteam_primaryinvivorep"
+      },
+      "targetConnectionId" : "@8PClJLvf2pjfSXL9P99zOh",
+      "connectionName" : "D__CRM_Target_CRM_OSC_VBEZ",
+      "targetObject" : "Employee_ID_Mgmt_OTC105_.txt",
+      "targetObjectLabel" : "Employee_ID_Mgmt_OTC105_.txt",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "Employee_ID_Mgmt_OTC105_.txt",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "\"",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : true,
+        "fwConfigId" : "@34kP4hD64BthNFH4Uqwcko",
+        "fwConfigName" : "FW_m_OSC_VBEZ_AccountTeamExtractff_tgt_osc_vbez_accountteam_primaryinvivorep"
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "Employee_ID_Mgmt_OTC105_.txt",
+          "label" : "Employee_ID_Mgmt_OTC105_.txt",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "Employee_ID_Mgmt_OTC105_.txt",
+            "label" : "Employee_ID_Mgmt_OTC105_.txt",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : true,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "Employee_ID_Mgmt_OTC105_.txt",
+      "objectLabel" : "Employee_ID_Mgmt_OTC105_.txt",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@3xyTuy71BpOhgFWzr8k2Ar",
+  "mappingTemplateName" : "m_OSC_VBEZ_AccountTeamExtract",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "inOutParameters" : [
+    {
+      "name" : "PROCESS_DATE",
+      "initialValue" : "03/24/2025 12:00:00",
+      "datatype" : "STRING",
+      "precision" : "19",
+      "scale" : "0",
+      "retentionPolicy" : "ON_SUCCESS_OR_WARNING",
+      "aggregationType" : "MAX",
+      "currentValue" : "03/24/2025 12:00:00"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:36 PDT"
+}

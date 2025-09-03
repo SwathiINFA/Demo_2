@@ -1,0 +1,186 @@
+{
+  "name" : "s_m_OSC_TM_TerritoryToAccountTeamDelete",
+  "description" : "Session pushed from PC to ICS : s_m_OSC_TM_TerritoryToAccountTeamDelete",
+  "runtimeEnvironmentId" : "@4XHzTDjn3M2cETJn1ZRVcd",
+  "runtimeEnvironmentName" : "INWPG02PTQH-AAD",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$SQ_T_OSC_ACCNT_RESOURCE$",
+      "type" : "SOURCE",
+      "label" : "SQ_T_OSC_ACCNT_RESOURCE",
+      "uiProperties" : {
+        "cnxtype" : "Oracle",
+        "connectionParameterized" : "true",
+        "paramName" : "Source",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "Source",
+        "isSelectDistinct" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "isCustomQueryRetainMetaData" : "true",
+        "flags" : "SUPPORTS_MULTI_SCHEMA",
+        "originalPath" : "SQ_T_OSC_ACCNT_RESOURCE"
+      },
+      "sourceConnectionId" : "@1WJdDPsrEsGgfVqMmD3JYu",
+      "connectionName" : "DWPRD_UTF8",
+      "sourceObject" : "DUMMY_SQ_T_OSC_ACCNT_RESOURCE",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "srcFFAttrs" : {
+        "delimiter" : "|",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "firstDataRow" : 2,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false,
+        "firstDataRowAsHeader" : false,
+        "headerAndDataDelimiter" : 0
+      },
+      "customFuncCfg" : { },
+      "customQuery" : "SELECT DISTINCT\r\nb.salesaccountid as salesaccountid, \r\na.resource_id as resourceid\r\nFROM \r\nosc.t_osc_accnt_resource a, \r\nosc.t_osc_org b, \r\nosc.t_osc_resource c, \r\nosc.t_osc_accnt_addr d, \r\nosc.t_osc_addr e\r\nWHERE \r\na.sales_account_id = b.salesaccountid and \r\n--b.countrycode = 'US' and \r\na.last_updated_by = c.username and \r\n(c.partyid in (select val from osc.t_osc_lst_of_val where type = 'RESOURCE_ID') or \r\na.addedfromterritoryflag = 'Y') and\r\n(a.origin not in (select val from osc.t_osc_lst_of_val where type = 'ORIGIN') or a.origin is null) and\r\nb.partyid = d.partyid and \r\nd.locationid = e.locationid and\r\n(e.state <> 'IT' or e.state is null) and \r\nb.oscregistryid not in (select val from osc.t_osc_lst_of_val where type = 'ACCOUNT_ID')\r\nand (a.orares_function in (select val from osc.t_osc_lst_of_val where type = 'ORARES_FUNCTION') OR a.orares_function like 'PSE%')\r\nMINUS\r\nSELECT DISTINCT\r\nc.salesaccountid as salesaccountid, \r\nto_char(a.resourceid) as resourceid\r\nFROM \r\nosc.t_osc_terr_resource a, \r\nosc.t_osc_accnt_terr b, \r\nosc.t_osc_org c, \r\nosc.t_osc_accnt_addr d, \r\nosc.t_osc_addr e\r\nWHERE \r\na.territoryid = b.territoryid and \r\nb.salesaccountid = c.partyid and \r\n--c.countrycode = 'US' and \r\na.territoryid not in (select val from osc.t_osc_lst_of_val where type = 'TERRITORY_ID')\r\nand c.partyid = d.partyid and \r\nd.locationid = e.locationid and \r\n(e.state <> 'IT' or e.state is null) and \r\nc.oscregistryid not in (select val from osc.t_osc_lst_of_val where type = 'ACCOUNT_ID')\r\nand (a.functioncode in (select val from osc.t_osc_lst_of_val where type = 'ORARES_FUNCTION') OR a.functioncode like 'PSE%')",
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "DUMMY_SQ_T_OSC_ACCNT_RESOURCE",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$ff_tgt_osc_tm_accountteam$",
+      "type" : "TARGET",
+      "label" : "ff_tgt_osc_tm_accountteam",
+      "uiProperties" : {
+        "cnxtype" : "CSVFile",
+        "connectionParameterized" : "true",
+        "paramName" : "ff_tgt_osc_tm_accountteamTgtParameter",
+        "paramType-mapping" : "Connection",
+        "logcnx" : "ff_tgt_osc_tm_accountteamTgtParameter",
+        "default" : "TMDeleteFromSalesTeam-Account.csv",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "ff_tgt_osc_tm_accountteam"
+      },
+      "targetConnectionId" : "@3b5fUeogNFDgfN22G4mky2",
+      "connectionName" : "D__CRM_Target_CRM_OSC_TerritoryManagement",
+      "targetObject" : "TMDeleteFromSalesTeam-Account.csv",
+      "targetObjectLabel" : "TMDeleteFromSalesTeam-Account.csv",
+      "newFlatFile" : false,
+      "newObject" : true,
+      "showBusinessNames" : true,
+      "naturalOrder" : true,
+      "newObjectName" : "TMDeleteFromSalesTeam-Account.csv",
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "tgtFFAttrs" : {
+        "delimiter" : ",",
+        "textQualifier" : "NONE",
+        "headerLineNo" : 1,
+        "rowDelimiter" : 0,
+        "consecutiveDelimiter" : false,
+        "multiDelimitersAsAnd" : false
+      },
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "TMDeleteFromSalesTeam-Account.csv",
+          "label" : "TMDeleteFromSalesTeam-Account.csv",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "TMDeleteFromSalesTeam-Account.csv",
+            "label" : "TMDeleteFromSalesTeam-Account.csv",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "TMDeleteFromSalesTeam-Account.csv",
+      "objectLabel" : "TMDeleteFromSalesTeam-Account.csv",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "fetchMode" : "ORIGINAL",
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "mappingId" : "@8bR5cjmTbysimEIttW8U4A",
+  "mappingTemplateName" : "m_OSC_TM_TerritoryToAccountTeamDelete",
+  "sessionPropertiesList" : [
+    {
+      "name" : "Allow Temporary Sequence for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Allow Temporary View for Pushdown",
+      "value" : "NO"
+    },
+    {
+      "name" : "Custom Properties",
+      "value" : "UseFixedWidthConfigMetadata=yes"
+    },
+    {
+      "name" : "Data Column Delimiter",
+      "value" : "|"
+    },
+    {
+      "name" : "Error Log File Name",
+      "value" : "PMError.log"
+    },
+    {
+      "name" : "Pushdown Optimization",
+      "value" : "None"
+    },
+    {
+      "name" : "Session Log File directory",
+      "value" : "D:\\CRM\\SessLogs\\"
+    }
+  ],
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : false,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "schemaMode" : "async",
+  "valid" : true,
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : true,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2025-09-03 04:41:27 PDT"
+}

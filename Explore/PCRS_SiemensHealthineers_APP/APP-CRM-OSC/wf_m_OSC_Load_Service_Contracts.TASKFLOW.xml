@@ -1,0 +1,1020 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>KUyaaaaa-gt-249191-2025-07-09T09:54:54.589Z::tf.xml</types1:EntryId>
+      <types1:Name>wf_m_OSC_Load_Service_Contracts</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description>These workflows are created from the Workflow Generation Wizard.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anfrancis_icinq</types1:CreatedBy>
+      <types1:CreationDate>2025-07-09T09:54:55Z</types1:CreationDate>
+      <types1:ModifiedBy>atalanki_icinq</types1:ModifiedBy>
+      <types1:ModificationDate>2025-08-25T16:00:48Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="wf_m_OSC_Load_Service_Contracts"
+                   name="wf_m_OSC_Load_Service_Contracts"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>These workflows are created from the Workflow Generation Wizard.</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="InputMappingTaskParameterFileDir"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="InputMappingTaskParameterFileName"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description=""
+                      name="s_m_OSC_Create_OLI_Exp_Contracts"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_Load_Temp_Expiring_Contracts"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_Create_Opty_Exp_Contracts"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="s_m_OSC_Load_Service_Contracts"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_oscexpcontracts_oli" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="cmd_oscexpcontracts_opty" type="reference">
+                  <options>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="SendEmail" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">false</option>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                  </options>
+               </field>
+               <field description="" name="PMBadFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMCacheDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMExtProcDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMFailureEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMFolderName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetLocation()</option>
+                  </options>
+               </field>
+               <field description="" name="PMIntegrationServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMLookupFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryServiceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMRepositoryUserName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getUserName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMRootDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMSessionLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMSessionRunMode" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMSourceFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMStorageDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMSuccessEmailUser" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMTargetFileDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMTempDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowLogDir" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getAssetName()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunId" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getProcessId()</option>
+                  </options>
+               </field>
+               <field description="" name="PMWorkflowRunInstanceName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="SYSDATE" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">fn:current-date()</option>
+                  </options>
+               </field>
+               <field description="" name="WORKFLOWSTARTTIME" type="datetime">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">util:getInstanceStartTime()</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_oscexpcontracts_oli_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="cmd_oscexpcontracts_opty_Execution_Status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowedGroups>
+                     <group>CDI_TFlow_API_group</group>
+                  </allowedGroups>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <title>Start</title>
+                  <link id="mckc8de7" targetId="mckc8de5"/>
+               </start>
+               <assignment id="mckc8de5">
+                  <title>Assignment_PC_Variables</title>
+                  <operation source="constant" to="temp.PMBadFileDir"/>
+                  <operation source="constant" to="temp.PMCacheDir"/>
+                  <operation source="constant" to="temp.PMExtProcDir"/>
+                  <operation source="constant" to="temp.PMFailureEmailUser"/>
+                  <operation source="formula" to="temp.PMFolderName">
+                     <expression language="XQuery">util:getAssetLocation()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMIntegrationServiceName"/>
+                  <operation source="constant" to="temp.PMLookupFileDir"/>
+                  <operation source="constant" to="temp.PMRepositoryServiceName"/>
+                  <operation source="formula" to="temp.PMRepositoryUserName">
+                     <expression language="XQuery">util:getUserName()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMRootDir"/>
+                  <operation source="constant" to="temp.PMSessionLogDir"/>
+                  <operation source="constant" to="temp.PMSessionRunMode"/>
+                  <operation source="constant" to="temp.PMSourceFileDir"/>
+                  <operation source="constant" to="temp.PMStorageDir"/>
+                  <operation source="constant" to="temp.PMSuccessEmailUser"/>
+                  <operation source="constant" to="temp.PMTargetFileDir"/>
+                  <operation source="constant" to="temp.PMTempDir"/>
+                  <operation source="constant" to="temp.PMWorkflowLogDir"/>
+                  <operation source="formula" to="temp.PMWorkflowName">
+                     <expression language="XQuery">util:getAssetName()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.PMWorkflowRunId">
+                     <expression language="XQuery">util:getProcessId()</expression>
+                  </operation>
+                  <operation source="constant" to="temp.PMWorkflowRunInstanceName"/>
+                  <operation source="formula" to="temp.SYSDATE">
+                     <expression language="XQuery">fn:current-date()</expression>
+                  </operation>
+                  <operation source="formula" to="temp.WORKFLOWSTARTTIME">
+                     <expression language="XQuery">util:getInstanceStartTime()</expression>
+                  </operation>
+                  <link id="mckc8de8" targetId="mckc8ddx"/>
+               </assignment>
+               <assignment id="mckc8ddx">
+                  <title>Assignment_PC_Workflow_Parameter_File</title>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileDir">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileDir)) then '' else $input.InputMappingTaskParameterFileDir</expression>
+                  </operation>
+                  <operation source="formula" to="input.InputMappingTaskParameterFileName">
+                     <expression language="XQuery">if (fn:empty($input.InputMappingTaskParameterFileName)) then '' else $input.InputMappingTaskParameterFileName</expression>
+                  </operation>
+                  <link id="mckc8de9" targetId="mckc8ddi"/>
+               </assignment>
+               <eventContainer id="mckc8ddi">
+                  <service id="mckc8ddj">
+                     <title>s_m_OSC_Load_Service_Contracts</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_Load_Service_Contracts</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">1wzQtm5hD1jiNQw5TqmqOP</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP">temp.s_m_OSC_Load_Service_Contracts</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_Load_Service_Contracts[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                           <operation source="field"
+                                      to="s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                           <operation source="field"
+                                      to="temp.s_m_OSC_Load_Service_Contracts[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.s_m_OSC_Load_Service_Contracts/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.s_m_OSC_Load_Service_Contracts/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Object_Name">Object Name</operation>
+                        <operation source="field" to="temp.s_m_OSC_Load_Service_Contracts/output/Log_Id">Log Id</operation>
+                        <operation source="field" to="temp.s_m_OSC_Load_Service_Contracts/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.s_m_OSC_Load_Service_Contracts/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="mckc8dep" targetId="mckc8def"/>
+                  <events>
+                     <catch faultField="temp.s_m_OSC_Load_Service_Contracts/fault"
+                            id="mckc8ddk"
+                            interrupting="true"
+                            name="error"/>
+                     <catch faultField="temp.s_m_OSC_Load_Service_Contracts/fault"
+                            id="mckc8ddl"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <container id="mckc8def" type="exclusive">
+                  <title>Link_Condition_mckc8dee</title>
+                  <flow id="mckc8deh">
+                     <eventContainer id="mckc8dda">
+                        <service id="mckc8ddb">
+                           <title>s_m_OSC_Load_Temp_Expiring_Contracts</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_Load_Temp_Expiring_Contracts</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">4BDsRLHnmXodCwNzhW8kmE</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field"
+                                            to="s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE">temp.s_m_OSC_Load_Temp_Expiring_Contracts</operation>
+                                 <operation source="field"
+                                            to="s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                 <operation source="field"
+                                            to="temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                 <operation source="field"
+                                            to="s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                 <operation source="field"
+                                            to="temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Run_Id">Run Id</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Start_Time">Start Time</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/End_Time">End Time</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Object_Name">Object Name</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Log_Id">Log Id</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Task_Id">Task Id</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Task_Status">Task Status</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/Error_Message">Error Message</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field"
+                                         to="temp.s_m_OSC_Load_Temp_Expiring_Contracts/output/FirstErrorCode">First Error Code</operation>
+                           </serviceOutput>
+                        </service>
+                        <link id="mckc8df5" targetId="mckc8dev"/>
+                        <events>
+                           <catch faultField="temp.s_m_OSC_Load_Temp_Expiring_Contracts/fault"
+                                  id="mckc8ddc"
+                                  interrupting="true"
+                                  name="error"/>
+                           <catch faultField="temp.s_m_OSC_Load_Temp_Expiring_Contracts/fault"
+                                  id="mckc8ddd"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <container id="mckc8dev" type="exclusive">
+                        <title>Link_Condition_mckc8deu</title>
+                        <flow id="mckc8dex">
+                           <eventContainer id="mckc8dde">
+                              <service id="mckc8ddf">
+                                 <title>s_m_OSC_Create_Opty_Exp_Contracts</title>
+                                 <serviceName>ICSExecuteDataTask</serviceName>
+                                 <serviceGUID/>
+                                 <serviceInput>
+                                    <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_Create_Opty_Exp_Contracts</parameter>
+                                    <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                    <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                    <parameter name="GUID" source="constant" updatable="true">1rrwi8SZ4TFhJq8119KIWf</parameter>
+                                    <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                    <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                    <parameter name="taskField" source="nested">
+                                       <operation source="field"
+                                                  to="s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf">temp.s_m_OSC_Create_Opty_Exp_Contracts</operation>
+                                       <operation source="field"
+                                                  to="s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                       <operation source="field"
+                                                  to="temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                       <operation source="field"
+                                                  to="s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                       <operation source="field"
+                                                  to="temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                    </parameter>
+                                 </serviceInput>
+                                 <serviceOutput>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Run_Id">Run Id</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Start_Time">Start Time</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/End_Time">End Time</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Object_Name">Object Name</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Log_Id">Log Id</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Task_Id">Task Id</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Task_Status">Task Status</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Success_Source_Rows">Success Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Success_Target_Rows">Success Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/Error_Message">Error Message</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/TotalTransErrors">Total Transformation Errors</operation>
+                                    <operation source="field"
+                                               to="temp.s_m_OSC_Create_Opty_Exp_Contracts/output/FirstErrorCode">First Error Code</operation>
+                                 </serviceOutput>
+                              </service>
+                              <link id="mckc8dfl" targetId="mckc8dfb"/>
+                              <events>
+                                 <catch faultField="temp.s_m_OSC_Create_Opty_Exp_Contracts/fault"
+                                        id="mckc8ddg"
+                                        interrupting="true"
+                                        name="error"/>
+                                 <catch faultField="temp.s_m_OSC_Create_Opty_Exp_Contracts/fault"
+                                        id="mckc8ddh"
+                                        interrupting="true"
+                                        name="warning"/>
+                              </events>
+                           </eventContainer>
+                           <container id="mckc8dfb" type="exclusive">
+                              <title>Link_Condition_mckc8dfa</title>
+                              <flow id="mckc8dfd">
+                                 <eventContainer id="mckc8ddq">
+                                    <service id="mckc8ddr">
+                                       <title>cmd_oscexpcontracts_opty</title>
+                                       <serviceName>ICSExecuteCommandTask</serviceName>
+                                       <serviceGUID/>
+                                       <serviceInput>
+                                          <parameter name="Task Name" source="constant">cmd_oscexpcontracts_opty</parameter>
+                                          <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                          <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                          <parameter name="Script Name" source="constant"/>
+                                          <parameter name="Input Arguments" source="constant"/>
+                                          <parameter name="Work Directory" source="constant"/>
+                                          <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                          <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                                          <parameter name="taskField" source="nested">
+                                             <operation source="field" to="INFA-commandTask">temp.cmd_oscexpcontracts_opty</operation>
+                                             <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">RUN_OSCEXPCONTRACTS_OPTY</operation>
+                                             <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                             <operation source="constant"
+                                                        to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscexpcontracts_opty.bat"</operation>
+                                             <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                          </parameter>
+                                       </serviceInput>
+                                       <serviceOutput>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty/output/Run_Id">Run Id</operation>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty/output/Start_Time">Start Time</operation>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty/output/End_Time">End Time</operation>
+                                          <operation source="field"
+                                                     to="temp.cmd_oscexpcontracts_opty/output/Execution_Status">Execution Status</operation>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty/output/Exit_Code">Exit Code</operation>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty/output/Std_Error">Std Error</operation>
+                                       </serviceOutput>
+                                    </service>
+                                    <flow id="mckc8dgv">
+                                       <assignment id="mckc8dgu">
+                                          <title>Command_Task_Success_Output_Assignment_cmd_oscexpcontracts_opty</title>
+                                          <operation source="field" to="temp.cmd_oscexpcontracts_opty_Execution_Status">temp.cmd_oscexpcontracts_opty[1]/output[1]/Execution_Status</operation>
+                                       </assignment>
+                                       <link id="mckc8dgw" targetId="mckc8ddq" type="containerLink"/>
+                                    </flow>
+                                    <flow id="mckc8dgy">
+                                       <assignment id="mckc8dh1">
+                                          <title>Command_Task_Failure_Output_Assignment_cmd_oscexpcontracts_opty</title>
+                                          <operation source="constant" to="temp.cmd_oscexpcontracts_opty_Execution_Status">FAILED</operation>
+                                       </assignment>
+                                       <link id="mckc8dgz" targetId="mckc8ddq" type="containerLink"/>
+                                    </flow>
+                                    <link id="mckc8dgx" targetId="mckc8dgv" type="containerLink"/>
+                                    <link id="mckc8dg1" targetId="mckc8dfr"/>
+                                    <events>
+                                       <catch faultField="temp.cmd_oscexpcontracts_opty/fault"
+                                              id="mckc8dds"
+                                              interrupting="true"
+                                              name="error">
+                                          <link id="mckc8dh0" targetId="mckc8dgy" type="containerLink"/>
+                                       </catch>
+                                    </events>
+                                 </eventContainer>
+                                 <container id="mckc8dfr" type="exclusive">
+                                    <title>Link_Condition_mckc8dfq</title>
+                                    <flow id="mckc8dft">
+                                       <eventContainer id="mckc8dd6">
+                                          <service id="mckc8dd7">
+                                             <title>s_m_OSC_Create_OLI_Exp_Contracts</title>
+                                             <serviceName>ICSExecuteDataTask</serviceName>
+                                             <serviceGUID/>
+                                             <serviceInput>
+                                                <parameter name="Task Name" source="constant" updatable="true">s_m_OSC_Create_OLI_Exp_Contracts</parameter>
+                                                <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                                                <parameter name="Max Wait" source="constant" updatable="true">86400</parameter>
+                                                <parameter name="GUID" source="constant" updatable="true">0kZz8wtx8oydjVH3CMUla3</parameter>
+                                                <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                                                <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                                                <parameter name="taskField" source="nested">
+                                                   <operation source="field"
+                                                              to="s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3">temp.s_m_OSC_Create_OLI_Exp_Contracts</operation>
+                                                   <operation source="field"
+                                                              to="s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                   <operation source="field"
+                                                              to="temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/taskProperties[1]/parameterFileDir">input.InputMappingTaskParameterFileDir</operation>
+                                                   <operation source="field"
+                                                              to="s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                   <operation source="field"
+                                                              to="temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/taskProperties[1]/parameterFileName">input.InputMappingTaskParameterFileName</operation>
+                                                </parameter>
+                                             </serviceInput>
+                                             <serviceOutput>
+                                                <operation source="field" to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Run_Id">Run Id</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Start_Time">Start Time</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/End_Time">End Time</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Object_Name">Object Name</operation>
+                                                <operation source="field" to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Log_Id">Log Id</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Task_Id">Task Id</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Task_Status">Task Status</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Success_Source_Rows">Success Source Rows</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Failed_Source_Rows">Failed Source Rows</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Success_Target_Rows">Success Target Rows</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Failed_Target_Rows">Failed Target Rows</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/Error_Message">Error Message</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/TotalTransErrors">Total Transformation Errors</operation>
+                                                <operation source="field"
+                                                           to="temp.s_m_OSC_Create_OLI_Exp_Contracts/output/FirstErrorCode">First Error Code</operation>
+                                             </serviceOutput>
+                                          </service>
+                                          <link id="mckc8dgh" targetId="mckc8dg7"/>
+                                          <events>
+                                             <catch faultField="temp.s_m_OSC_Create_OLI_Exp_Contracts/fault"
+                                                    id="mckc8dd8"
+                                                    interrupting="true"
+                                                    name="error"/>
+                                             <catch faultField="temp.s_m_OSC_Create_OLI_Exp_Contracts/fault"
+                                                    id="mckc8dd9"
+                                                    interrupting="true"
+                                                    name="warning"/>
+                                          </events>
+                                       </eventContainer>
+                                       <container id="mckc8dg7" type="exclusive">
+                                          <title>Link_Condition_mckc8dg6</title>
+                                          <flow id="mckc8dg9">
+                                             <eventContainer id="mckc8ddn">
+                                                <service id="mckc8ddo">
+                                                   <title>cmd_oscexpcontracts_oli</title>
+                                                   <serviceName>ICSExecuteCommandTask</serviceName>
+                                                   <serviceGUID/>
+                                                   <serviceInput>
+                                                      <parameter name="Task Name" source="constant">cmd_oscexpcontracts_oli</parameter>
+                                                      <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                                                      <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                                                      <parameter name="Max Wait" source="constant">86400</parameter>
+                                                      <parameter name="Script Name" source="constant"/>
+                                                      <parameter name="Input Arguments" source="constant"/>
+                                                      <parameter name="Work Directory" source="constant"/>
+                                                      <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                                                      <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                                                      <parameter name="taskField" source="nested">
+                                                         <operation source="field" to="INFA-commandTask">temp.cmd_oscexpcontracts_oli</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">RUN_OSCEXPCONTRACTS_OLI</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                                         <operation source="constant"
+                                                                    to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscexpcontracts_oli.bat"</operation>
+                                                         <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                                                      </parameter>
+                                                   </serviceInput>
+                                                   <serviceOutput>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli/output/Run_Id">Run Id</operation>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli/output/Start_Time">Start Time</operation>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli/output/End_Time">End Time</operation>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli/output/Exit_Code">Exit Code</operation>
+                                                      <operation source="field"
+                                                                 to="temp.cmd_oscexpcontracts_oli/output/Execution_Status">Execution Status</operation>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli/output/Std_Error">Std Error</operation>
+                                                   </serviceOutput>
+                                                </service>
+                                                <flow id="mckc8dgn">
+                                                   <assignment id="mckc8dgm">
+                                                      <title>Command_Task_Success_Output_Assignment_cmd_oscexpcontracts_oli</title>
+                                                      <operation source="field" to="temp.cmd_oscexpcontracts_oli_Execution_Status">temp.cmd_oscexpcontracts_oli[1]/output[1]/Execution_Status</operation>
+                                                   </assignment>
+                                                   <link id="mckc8dgo" targetId="mckc8ddn" type="containerLink"/>
+                                                </flow>
+                                                <flow id="mckc8dgq">
+                                                   <assignment id="mckc8dgt">
+                                                      <title>Command_Task_Failure_Output_Assignment_cmd_oscexpcontracts_oli</title>
+                                                      <operation source="constant" to="temp.cmd_oscexpcontracts_oli_Execution_Status">SUCCEEDED</operation>
+                                                   </assignment>
+                                                   <link id="mckc8dgr" targetId="mckc8ddn" type="containerLink"/>
+                                                </flow>
+                                                <link id="mckc8dgp" targetId="mckc8dgn" type="containerLink"/>
+                                                <events>
+                                                   <catch faultField="temp.cmd_oscexpcontracts_oli/fault"
+                                                          id="mckc8ddp"
+                                                          interrupting="true"
+                                                          name="error">
+                                                      <link id="mckc8dgs" targetId="mckc8dgq" type="containerLink"/>
+                                                   </catch>
+                                                </events>
+                                             </eventContainer>
+                                             <link id="mckc8dg8" targetId="mckc8dg7" type="containerLink"/>
+                                          </flow>
+                                          <flow id="mckc8dgb">
+                                             <link id="mckc8dga" targetId="mckc8dg7" type="containerLink"/>
+                                          </flow>
+                                          <link id="mckc8dgc" targetId="mckc8dg9" type="containerLink">
+                                             <condition source="formula">
+                                                <function name="starts-with-any-of">
+                                                   <arg name="left">{$temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/output[1]/Task_Status}</arg>
+                                                   <arg name="right">1,2</arg>
+                                                </function>
+                                             </condition>
+                                          </link>
+                                          <link id="mckc8dgd" targetId="mckc8dgb" type="containerLink"/>
+                                       </container>
+                                       <link id="mckc8dfs" targetId="mckc8dfr" type="containerLink"/>
+                                    </flow>
+                                    <flow id="mckc8dfv">
+                                       <link id="mckc8dfu" targetId="mckc8dfr" type="containerLink"/>
+                                    </flow>
+                                    <link id="mckc8dfw" targetId="mckc8dft" type="containerLink">
+                                       <condition source="formula">
+                                          <function name="starts-with-any-of">
+                                             <arg name="left">{$temp.cmd_oscexpcontracts_opty_Execution_Status}</arg>
+                                             <arg name="right">SUCCEEDED,WARNING</arg>
+                                          </function>
+                                       </condition>
+                                    </link>
+                                    <link id="mckc8dfx" targetId="mckc8dfv" type="containerLink"/>
+                                 </container>
+                                 <link id="mckc8dfc" targetId="mckc8dfb" type="containerLink"/>
+                              </flow>
+                              <flow id="mckc8dff">
+                                 <link id="mckc8dfe" targetId="mckc8dfb" type="containerLink"/>
+                              </flow>
+                              <link id="mckc8dfg" targetId="mckc8dfd" type="containerLink">
+                                 <condition source="formula">
+                                    <function name="starts-with-any-of">
+                                       <arg name="left">{$temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status}</arg>
+                                       <arg name="right">1,2</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="mckc8dfh" targetId="mckc8dff" type="containerLink"/>
+                           </container>
+                           <link id="mckc8dew" targetId="mckc8dev" type="containerLink"/>
+                        </flow>
+                        <flow id="mckc8dez">
+                           <link id="mckc8dey" targetId="mckc8dev" type="containerLink"/>
+                        </flow>
+                        <link id="mckc8df0" targetId="mckc8dex" type="containerLink">
+                           <condition source="formula">
+                              <function name="starts-with-any-of">
+                                 <arg name="left">{$temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status}</arg>
+                                 <arg name="right">1,2</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="mckc8df1" targetId="mckc8dez" type="containerLink"/>
+                     </container>
+                     <link id="mckc8deg" targetId="mckc8def" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8dej">
+                     <link id="mckc8dei" targetId="mckc8def" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8dek" targetId="mckc8deh" type="containerLink">
+                     <condition source="formula">
+                        <function name="starts-with-any-of">
+                           <arg name="left">{$temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status}</arg>
+                           <arg name="right">1,2</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8del" targetId="mckc8dej" type="containerLink"/>
+                  <link id="mckc8dha" targetId="mckc8ddy"/>
+               </container>
+               <container id="mckc8ddy" type="exclusive">
+                  <title>Decision_Email</title>
+                  <flow id="mckc8de0">
+                     <service id="mckc8ddt">
+                        <title>Email</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">adam.coulton.ext@siemens-healthineers.com; ITEACRMConversionsandInterfaces@internal.siemens-healthineers.com; siebelccinterfaces.healthcare@internal.siemens-healthineers.com; adam.coulton@capgemini.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">PROD - Workflow: wf_m_OSC_Load_Service_Contracts FAILED!</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant">Please check the APP-CRM-OSC:wf_m_OSC_Load_Service_Contracts workflow and contact Adam Coulton!</parameter>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="mckc8dgi" targetId="mckc8ddu"/>
+                     </service>
+                     <eventContainer id="mckc8ddu">
+                        <service id="mckc8ddv">
+                           <title>SendEmail</title>
+                           <serviceName>ICSExecuteCommandTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Task Name" source="constant">SendEmail</parameter>
+                              <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                              <parameter name="Runtime Environment" source="constant">01110V25000000000064:INWPG02PTQH-AAD</parameter>
+                              <parameter name="Script Name" source="constant"/>
+                              <parameter name="Input Arguments" source="constant"/>
+                              <parameter name="Work Directory" source="constant"/>
+                              <parameter name="RuntimeEnvGUID" source="constant">4XHzTDjn3M2cETJn1ZRVcd</parameter>
+                              <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="INFA-commandTask">temp.SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">SendEmail</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">$PMRootDir/invoke_os_command.sh</operation>
+                                 <operation source="constant"
+                                            to="INFA-commandTask/input[1]/script-1/inputArguments">"D:\CRM\Batch\OSC\run_oscsendemail.bat {$temp.PMWorkflowName}"</operation>
+                                 <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.SendEmail/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.SendEmail/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.SendEmail/output/Execution_Status">Execution Status</operation>
+                              <operation source="field" to="temp.SendEmail/output/Exit_Code">Exit Code</operation>
+                              <operation source="field" to="temp.SendEmail/output/Std_Error">Std Error</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.SendEmail/fault"
+                                  id="mckc8ddw"
+                                  interrupting="true"
+                                  name="error"/>
+                        </events>
+                     </eventContainer>
+                     <link id="mckc8ddz" targetId="mckc8ddy" type="containerLink"/>
+                  </flow>
+                  <flow id="mckc8de2">
+                     <link id="mckc8de1" targetId="mckc8ddy" type="containerLink"/>
+                  </flow>
+                  <link id="mckc8de3" targetId="mckc8de0" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left" source="formula">{xs:integer((((((((((($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_oscexpcontracts_opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_oscexpcontracts_opty_Execution_Status = 'WARNING'))) and ($temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/output[1]/Task_Status = '3')) or ((((((($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '2'))) and (($temp.cmd_oscexpcontracts_opty_Execution_Status = 'SUCCEEDED' or $temp.cmd_oscexpcontracts_opty_Execution_Status = 'WARNING'))) and (($temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Create_OLI_Exp_Contracts[1]/output[1]/Task_Status = '2'))) and ($temp.cmd_oscexpcontracts_oli_Execution_Status = 'FAILED'))) or ((((($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '2'))) and (($temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '2'))) and ($temp.cmd_oscexpcontracts_opty_Execution_Status = 'FAILED'))) or (((($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '2')) and (($temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '2'))) and ($temp.s_m_OSC_Create_Opty_Exp_Contracts[1]/output[1]/Task_Status = '3'))) or ((($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '1' or $temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '2')) and ($temp.s_m_OSC_Load_Temp_Expiring_Contracts[1]/output[1]/Task_Status = '3'))) or ($temp.s_m_OSC_Load_Service_Contracts[1]/output[1]/Task_Status = '3'))}</arg>
+                           <arg name="right">1</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="mckc8de4" targetId="mckc8de2" type="containerLink"/>
+                  <link id="mckc8dgl" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3"
+                              isByCopy="true"
+                              name="s-m-OSC-Create-OLI-Exp-Contracts-0kZz8wtx8oydjVH3CMUla3">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE"
+                              isByCopy="true"
+                              name="s-m-OSC-Load-Temp-Expiring-Contracts-4BDsRLHnmXodCwNzhW8kmE">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf"
+                              isByCopy="true"
+                              name="s-m-OSC-Create-Opty-Exp-Contracts-1rrwi8SZ4TFhJq8119KIWf">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP"
+                              isByCopy="true"
+                              name="s-m-OSC-Load-Service-Contracts-1wzQtm5hD1jiNQw5TqmqOP">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description>This process object represents a taskflow specific command task output field details.</description>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>1rUrXW2DG51gxrOLW0mvU2</types1:GUID>
+      <types1:DisplayName>wf_m_OSC_Load_Service_Contracts</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-09-03T11:41:36.818Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
